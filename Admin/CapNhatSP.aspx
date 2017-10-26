@@ -39,7 +39,7 @@
             </td>
         </tr>
         <tr>
-            <td class="tbCapNhatLeft">Tên Sản phẩm</td>
+            <td class="tbCapNhatLeft">Tên Sản phẩm :</td>
             <td class="tbCapNhatCenter">
                 <asp:TextBox ID="txtTenSP" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtTenSP" ForeColor="Red" ValidationGroup="saveSp" ErrorMessage="Nhập tên Sản phẩm" SetFocusOnError="True">*</asp:RequiredFieldValidator>
