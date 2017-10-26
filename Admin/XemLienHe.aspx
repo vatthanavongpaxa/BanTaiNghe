@@ -4,7 +4,7 @@
     <style type="text/css">
         .tbLienHe {
             text-align: center;
-            width: 700px;
+            width: 701px;
         }
         .trLienHe {
             width: 175px;
