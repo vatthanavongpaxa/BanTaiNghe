@@ -1,0 +1,62 @@
+﻿div#footer {
+    border-top: 1px solid #a3a2a3;
+    padding: 10px;
+    clear: both;
+    background-color:azure;
+}
+
+div#footer div.fLeft {
+    float: left;
+    width: 340px;
+}
+
+div#footer div.fRight {
+    float: right;
+    width: 530px;
+}
+
+div#footer div.fRight ul {
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+div#footer div.fRight ul li {
+    display: inline;
+    border-right: solid 1px #333;
+    padding: 0 5px;
+}
+
+div#footer div.fRight ul li.last {
+    border-right: none;
+    padding-right: 0;
+}
+
+div#footer div.fRight p {
+    text-align: right;
+}
+
+div#footer {
+    zoom: 1;
+}
+
+div#footer:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+div#pageBody {
+    zoom: 1;
+}
+
+div#pageBody:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}

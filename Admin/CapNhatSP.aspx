@@ -97,7 +97,8 @@
         <tr>
             <td class="tbCapNhatLeft">&nbsp;</td>
             <td class="tbCapNhatCenter" colspan="2">
-                <CKEditor:CKEditorControl ID="CKEditorControl1" runat="server" Width="500px"></CKEditor:CKEditorControl>
+                <CKEditor:CKEditorControl ID="CKEditorControl1" runat="server">
+                </CKEditor:CKEditorControl>
             </td>
         </tr>
         <tr>
