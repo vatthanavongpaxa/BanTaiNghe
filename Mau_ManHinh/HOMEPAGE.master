@@ -1,0 +1,212 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="HOMEPAGE.master.cs" Inherits="MAU_MANHINH_HOMEPAGE" %>
+
+<%@ Register src="../UserControl/LogInLogOut.ascx" tagname="LogInLogOut" tagprefix="uc1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .tablebody {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif,'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif,'Times New Roman', Times, serif;
+            width: 1000px;
+            
+        }
+
+        .header {
+            font-family: 'Source,Arial';
+            font-weight: bold;
+            width: 1000px;
+            height: 200px;
+            background-color: dimgray;
+            align-content: center;
+            text-align: center;
+        }
+
+        .nav {
+            width: 1000px;
+            background-color: #303030;
+        }
+
+        .article {
+            width: 1000px;
+            height: 500px;
+            background-color: #f5eeee;
+        }
+
+        .aside {
+            width: 300px;
+            background-color: #ccc;
+            text-align: center;
+            vertical-align: top;
+        }
+
+        .section {
+            width: 700px;
+            background-color: white;
+            text-align: center;
+            vertical-align: top;
+        }
+
+        .footer {
+            width: 1000px;
+            height: 100px;
+            background-color: darkgrey;
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .tablemenu {
+            width: 300px;
+            text-align: left;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-top: 10px;
+        }
+
+        .tablemenuheader {
+            width: 100%;
+            height: 40px;
+        }
+
+        .tablelogin {
+            width: 300px;
+            margin-top: 10px;
+        }
+
+        .giohang {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        .btn {
+            background-color: #303030;
+            border-radius: 5px;
+            height: 25px;
+        }
+
+        .btnGioHang {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #303030;
+            height: 40px;
+            width: 40px;
+            text-align:center;
+            padding-top:15px;
+            border-radius: 5px;
+        }
+        .btnGioHang:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 2px 5px #000;
+        }
+        .hlmenu {
+            text-decoration: none;
+        }
+
+
+
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="../css/jqueryslidemenu.css"/>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jqueryslidemenu.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:HyperLink ID="hplGioHang" runat="server" CssClass="btnGioHang" ImageUrl="~/icon/buy.png" ImageWidth="24px" NavigateUrl="~/Trang_Web/GioHang.aspx"></asp:HyperLink>
+    </div>
+    <table align="center" cellpadding="0" cellspacing="0" class="tablebody">
+        <tr class="header">
+            <td colspan="2" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                <asp:Image ID="ImgLogo" runat="server" Height="200px" ImageUrl="~/icon/K-music.png" Width="200px" ImageAlign="AbsMiddle" />
+                Professional Music</td>
+        </tr>
+        <tr class="nav">
+            <td colspan="2">
+                <div>
+                    
+                </div>
+                    <div id="myslidemenu" class="jqueryslidemenu" >
+                        <ul>
+                            <li><a href="../Default.aspx">Home Page</a></li>
+                            <li><a href="../Trang_Web/SanPham.aspx">Product</a>
+                                <ul>
+                                <li><a href="../Trang_Web/SanPham.aspx?MALOAI=1">APPLE</a></li>
+                                <li><a href="../Trang_Web/SanPham.aspx?MALOAI=2">BOSE</a></li>
+                                <li><a href="../Trang_Web/SanPham.aspx?MALOAI=3">GRADO</a></li>
+                                <li><a href="../Trang_Web/SanPham.aspx?MALOAI=4">MARSHALL</a></li>
+                                <li><a href="../Trang_Web/SanPham.aspx?MALOAI=5">HARMAN KARDON</a></li>
+                                <li><a href="../Trang_Web/SanPham.aspx?MALOAI=6">SKULLCANDY</a></li>   
+                                <li><a href="../Trang_Web/SanPham.aspx?MALOAI=7">SONY</a></li>  
+                                </ul>
+                            </li>
+                            <li><a href="../Trang_Web/LienHe.aspx">Contact Us</a></li>
+                            <li><a href="../Trang_Web/BanDo.aspx">Map</a></li>
+                        </ul>
+                        <br style="clear: left" />
+                    </div>
+            </td>
+        </tr>
+        <tr class="article">
+            <td class="aside">
+                <div>
+                    <asp:DataList ID="DataListMN" runat="server" CellSpacing="-1" CellPadding="0">
+                        <HeaderStyle Font-Bold="False" Font-Italic="False" Font-Names="Gill Sans MT" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" BackColor="Gray" />
+                        <HeaderTemplate>
+                            <table class="tablemenuheader">
+                                <tr>
+                                    <td>
+                                        <asp:HyperLink ID="hplSP" runat="server" Font-Bold="True" NavigateUrl="~/Trang_Web/SanPham.aspx">Product</asp:HyperLink>
+                                    </td>
+                                </tr>
+                            </table>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <table align="left" cellpadding="0" cellspacing="0" class="tablemenu">
+                                <tr>
+                                    <td style="border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #C0C0C0; height: 20px;">
+                                        <asp:HyperLink ID="hlMenu" runat="server" Text='<%# Eval("TENLOAI") %>' NavigateUrl='<%# "~/Trang_Web/SanPham.aspx?MALOAI="+Eval("MALOAI") %>' CssClass="hlmenu"></asp:HyperLink>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br />
+                        </ItemTemplate>
+                    </asp:DataList>
+                </div>
+                <div>
+
+                    <uc1:LogInLogOut ID="LogInLogOut1" runat="server" />
+
+                </div>
+                <%--<div class="giohang">
+                    Gió hàng : <br />
+                    <asp:Label ID="Label1" runat="server" Text="Tông số lượng : "></asp:Label>
+                    <asp:Label ID="lbTongL" runat="server"></asp:Label>
+                    <br />
+                    <asp:Label ID="Label2" runat="server" Text="Tổng tiền :"></asp:Label>
+                    <asp:Label ID="lbTongT" runat="server"></asp:Label>
+                    <br />
+                    <br />
+                </div>--%>
+            </td>
+            <td class="section">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        <tr class="footer">
+            <td colspan="2">Môn thiết kế lập trình WebSite<br />
+                Mr.Vatthana Vongpaxa<br />
+                <asp:HyperLink ID="hplAdmin" runat="server" NavigateUrl="~/Admin/Admin.aspx">Admin Page</asp:HyperLink>
+            </td>
+        </tr>
+    </table>
+    </form>
+    </body>
+</html>
