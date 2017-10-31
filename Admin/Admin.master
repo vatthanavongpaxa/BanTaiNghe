@@ -49,17 +49,23 @@
                             <a href="SanPham.aspx"><i class="fa fa-cogs nav_icon"></i>Quản Lý Sản Phẩm</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-cogs nav_icon"></i>Quản Loại Sản Phẩm</a>
+                            <a href="#"><i class="fa fa-cogs nav_icon"></i>Quản Lý Loại Sản Phẩm</a>
+                        </li>
+                         <li>
+                            <a href="#"><i class="fa fa-cogs nav_icon"></i>Quản Lý Phản Hồi</a>
+                        </li>
+                         <li>
+                            <a href="#"><i class="fa fa-cogs nav_icon"></i>Quản Lý Tài Khoản</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-check-square-o nav_icon"></i>Quản Lý Hóa Đơn<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-cogs nav_icon"></i>Quản Lý Hóa Đơn<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="PhanCong.aspx">Hóa Đơn</a>
-                                </li>
-                                <li>
-                                    <a href="CTPhanCong.aspx">Hóa Đơn Chi Tiết</a>
-                                </li>
+                                    <li>
+                                        <a href="PhanCong.aspx"><i class="fa fa-check-square-o nav_icon"></i> Hóa Đơn </a>
+                                    </li>
+                                    <li>
+                                        <a href="CTPhanCong.aspx"><i class="fa fa-check-square-o nav_icon"></i> Hóa Đơn Chi Tiết </a>
+                                    </li>
                             </ul>
                             <!-- //nav-second-level -->
                         </li>
@@ -109,7 +115,7 @@
         </form>
         <!--footer-->
         <div class="footer">
-            <p>&nbsp;Design by Nhóm Sinh Viên Đại Học Thủ Dầu Một</p>
+            <p>&nbsp;Design by VAK_D14HT01_TDMU</p>
         </div>
         <!--//footer-->
     </div>

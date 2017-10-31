@@ -14,7 +14,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <h2>DANH SÁCH SẢN PHẨM</h2>
-    <a href="#">Thêm mới</a>
+    <a href="ThemSanPham.aspx">Thêm mới</a>
     <asp:GridView ID="GvSanPham" CssClass="table table-striped table-bordered table-hover" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="MASP"    GridLines="None"  CellSpacing="10" CellPadding="1" HorizontalAlign="Center" Width="100%"  PageSize="5" OnPageIndexChanging="GvSanPham_PageIndexChanging" >
         <Columns>
             <asp:BoundField DataField="MASP" HeaderText="Mã Sản Phẩm"  ReadOnly="True" SortExpression="MaSP" Visible="False" >
