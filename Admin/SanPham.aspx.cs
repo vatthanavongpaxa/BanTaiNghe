@@ -32,4 +32,36 @@ public partial class Admin_SanPham : System.Web.UI.Page
         GvSanPham.PageIndex = e.NewPageIndex;
         htdssanpham();
     }
+
+  
+        
+    protected void GvSanPham_SelectedIndexChanging1(object sender, GridViewSelectEventArgs e)
+    {
+        Response.Redirect("~/Admin/SuaSanPham.aspx?MASP=" + GvSanPham.DataKeys[e.NewSelectedIndex].Value.ToString());
+ 
+    }
+
+    protected void GvSanPham_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        try
+        {
+            Object[] o = new Object[] { GvSanPham.DataKeys[e.RowIndex].Value };
+            x.ExecuteQuery("del_sanpham", o);
+            Response.Write("<script>alert('Xóa Dữ Liệu Thành Công !')</script>");
+            htdssanpham();
+        }
+        catch
+        {
+            Response.Write("<script>alert('Xóa Dữ Liệu Thất Bại !')</script>");
+        }
+    }
+
+    protected void GvSanPham_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow
+            && e.Row.RowIndex != GvSanPham.EditIndex)
+        {
+            (e.Row.Cells[5].Controls[0] as LinkButton).Attributes["onclick"] = "return confirm('Bạn muốn xóa dòng này?');";
+        }
+    }
 }

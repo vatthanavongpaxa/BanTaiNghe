@@ -49,7 +49,7 @@
                             <a href="SanPham.aspx"><i class="fa fa-cogs nav_icon"></i>Quản Lý Sản Phẩm</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-cogs nav_icon"></i>Quản Lý Loại Sản Phẩm</a>
+                            <a href="LoaiSanPham.aspx"><i class="fa fa-cogs nav_icon"></i>Quản Lý Loại Sản Phẩm</a>
                         </li>
                          <li>
                             <a href="#"><i class="fa fa-cogs nav_icon"></i>Quản Lý Phản Hồi</a>

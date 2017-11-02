@@ -15,7 +15,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <h2>DANH SÁCH SẢN PHẨM</h2>
     <a href="ThemSanPham.aspx">Thêm mới</a>
-    <asp:GridView ID="GvSanPham" CssClass="table table-striped table-bordered table-hover" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="MASP"    GridLines="None"  CellSpacing="10" CellPadding="1" HorizontalAlign="Center" Width="100%"  PageSize="5" OnPageIndexChanging="GvSanPham_PageIndexChanging" >
+    <asp:GridView ID="GvSanPham" CssClass="table table-striped table-bordered table-hover" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="MASP"    GridLines="None"  CellSpacing="10" CellPadding="1" HorizontalAlign="Center" Width="100%"  PageSize="5" OnPageIndexChanging="GvSanPham_PageIndexChanging" OnRowDataBound="GvSanPham_RowDataBound" OnRowDeleting="GvSanPham_RowDeleting" OnSelectedIndexChanging="GvSanPham_SelectedIndexChanging1" >
         <Columns>
             <asp:BoundField DataField="MASP" HeaderText="Mã Sản Phẩm"  ReadOnly="True" SortExpression="MaSP" Visible="False" >
             <HeaderStyle HorizontalAlign="Center" Width="50px" />
@@ -56,26 +56,6 @@
             <ItemStyle Wrap="True" />
             </asp:CommandField>
         </Columns>
+       
     </asp:GridView>
-                <%--<asp:GridView ID="GvXeBus"
-CssClass="table table-striped table-bordered table-hover"
-   runat="server"
-   AllowPaging="True" AutoGenerateColumns="False" OnRowDeleting="GvXiNghiep_RowDeleting" DataKeyNames="MaXN"  Height="16px" GridLines="None" OnSelectedIndexChanging="GvXiNghiep_SelectedIndexChanging" >
-       <Columns>
-           <asp:TemplateField HeaderText="Mã xí nghiệp" Visible="False">
-               <ItemTemplate>
-                   <asp:Label ID="Label1" runat="server" Text='<%# Eval("MaXe") %>'></asp:Label>
-               </ItemTemplate>
-           </asp:TemplateField>
-           <asp:BoundField DataField="LoaiXe" HeaderText="Loại xe" >
-           <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-           </asp:BoundField>
-           <asp:BoundField DataField="NoiCungCap" HeaderText="Nơi cung cấp" />
-           <asp:BoundField DataField="‪BienKiemSoat" HeaderText="Biển kiểm soát" />
-           <asp:BoundField DataField="ThoiGianHoatDong" HeaderText="Thời gian hoạt động" />
-           <asp:BoundField DataField="TuyenXeDi" HeaderText="Tuyến xe đi" />
-           <asp:BoundField DataField="ThucTrangXe" HeaderText="Thực trạng xe" />
-           <asp:CommandField DeleteImageUrl="~/Admin/Image/1497267994_Delete.png" DeleteText="Xóa" CausesValidation="false" EditImageUrl="~/Admin/Image/edit-validated.png" EditText="Chỉnh sửa" HeaderText="Công cụ" ShowDeleteButton="True" UpdateImageUrl="~/Admin/Image/available-updates-16.png" UpdateText="Cập nhật" CancelImageUrl="~/Admin/Image/1497464610_Cancel__Red.png" CancelText="Hủy" SelectText="Chỉnh sửa" ShowSelectButton="True" />
-       </Columns>
-        </asp:GridView>--%>
 </asp:Content>
