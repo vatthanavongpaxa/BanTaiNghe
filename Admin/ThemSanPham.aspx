@@ -13,10 +13,10 @@
             </div>
         </div>
         <div class="form-group">
-        <asp:Label ID="Label3" runat="server" CssClass="control-label col-md-2" Text="Loại sản phẩm: "></asp:Label>
+        <asp:Label ID="Label3" runat="server" CssClass="control-label col-md-2" Text="Nhà sản xuất: "></asp:Label>
             <div class="col-md-10">
-                <asp:DropDownList ID="ddlLoaiSP" runat="server"></asp:DropDownList>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlLoaiSP" ErrorMessage="Vui lòng nhập số điện thoại !">(*)</asp:RequiredFieldValidator>
+                <asp:DropDownList ID="ddlNSX" runat="server"></asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlNSX" ErrorMessage="Vui lòng chọn nhà sản xuất !">(*)</asp:RequiredFieldValidator>
                 
             </div>
         </div>

@@ -23,7 +23,7 @@ public partial class Admin_SuaSanPham : System.Web.UI.Page
     }
     public void loadSuaSP()
     {
-        x.ASPXComboBox("select MALOAI,TENLOAI from LOAISANPHAM", ddlLoaiSP, "TENLOAI", "MALOAI");
+        x.ASPXComboBox("select MANSX,TENNSX from NhaSanXuat", ddlLoaiSP, "TENNSX", "MANSX");
         DataTable dt = x.getData("select * from SANPHAM where MASP=" + Request.QueryString["MASP"].ToString());
         txtTenSP.Text = dt.Rows[0][1].ToString();
         Image1.ImageUrl = "~/Hinh/" + dt.Rows[0][3].ToString();
@@ -52,7 +52,9 @@ public partial class Admin_SuaSanPham : System.Web.UI.Page
             }
             else
             {
-                Object[] o1 = new Object[] { };
+                Object[] o1 = new Object[] { Request.QueryString["MASP"].ToString(), txtTenSP.Text, txtDonGia.Text,"",ddlLoaiSP.SelectedValue, ckeChitiet.Text };
+                x.ExecuteQuery("update_sanpham", o1);
+                Response.Redirect("~/Admin/SanPham.aspx");
             }
            
         }

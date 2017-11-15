@@ -46,7 +46,7 @@ public partial class Admin_SanPham : System.Web.UI.Page
         try
         {
             Object[] o = new Object[] { GvSanPham.DataKeys[e.RowIndex].Value };
-            x.ExecuteQuery("del_sanpham", o);
+            x.ExecuteQuery("deleteSanPham", o);
             Response.Write("<script>alert('Xóa Dữ Liệu Thành Công !')</script>");
             htdssanpham();
         }

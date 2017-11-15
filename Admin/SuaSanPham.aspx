@@ -59,7 +59,6 @@
             <div class="col-md-10">  
                 <asp:Label ID="Label6" runat="server" CssClass="control-label col-md-2" Text="Hình ảnh: "></asp:Label>                         
                 <asp:FileUpload ID="FileUploadHinh" runat="server"/>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="FileUploadHinh" ErrorMessage="Vui lòng nhập hình ảnh !">(*)</asp:RequiredFieldValidator>
             </div>
         </div>
          <div class="form-group">

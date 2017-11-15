@@ -24,13 +24,13 @@
             <HeaderStyle HorizontalAlign="Center" Width="50px" />
             </asp:BoundField>
 
-            <asp:TemplateField HeaderText="Loại sản phẩm">
+            <asp:TemplateField HeaderText="Nhà sản xuất">
                 <EditItemTemplate>
                     <asp:DropDownList ID="ddlLoaiSP" runat="server">
                     </asp:DropDownList>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("TenLoai") %>'></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("TenNSX") %>'></asp:Label>
                 </ItemTemplate>
                 <HeaderStyle HorizontalAlign="Center" Width="120px" />
             </asp:TemplateField>
@@ -56,6 +56,8 @@
             <ItemStyle Wrap="True" />
             </asp:CommandField>
         </Columns>
+       
+        <PagerSettings Mode="NumericFirstLast" PageButtonCount="4" FirstPageText="Trước" LastPageText="Sau" /> 
        
     </asp:GridView>
 </asp:Content>

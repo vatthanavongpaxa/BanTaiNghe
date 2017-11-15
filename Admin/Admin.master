@@ -49,7 +49,7 @@
                             <a href="SanPham.aspx"><i class="fa fa-cogs nav_icon"></i>Quản Lý Sản Phẩm</a>
                         </li>
                         <li>
-                            <a href="LoaiSanPham.aspx"><i class="fa fa-cogs nav_icon"></i>Quản Lý Loại Sản Phẩm</a>
+                            <a href="NhaSanXuat.aspx"><i class="fa fa-cogs nav_icon"></i>Quản Lý Loại Sản Phẩm</a>
                         </li>
                          <li>
                             <a href="#"><i class="fa fa-cogs nav_icon"></i>Quản Lý Phản Hồi</a>
@@ -99,7 +99,7 @@
              <form runat="server">
             <div class="header-right" >
                 <div class="profile_details" runat="server">
-                    <asp:Label ID="lbtendn" runat="server" Text="Label"></asp:Label>
+                    <a href="DoiMatKhau.aspx"><asp:Label ID="lbtendn" runat="server" Text="Label"></asp:Label></a> &nbsp;&nbsp;
                     <asp:LinkButton ID="Link"  runat="server"  CausesValidation="false" OnClick="Link_Click">Đăng Xuất</asp:LinkButton>
                 </div>
                 <div class="clearfix"> </div>

@@ -1,9 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DangNhap.aspx.cs" Inherits="Admin_DangNhap" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DoiMatKhau.aspx.cs" Inherits="Admin_DoiMatKhau" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Đăng nhập tài khoản ShopOne.com</title>
+    <title>ShopOne.com</title>
     <link href="CSS/DangNhapAdmin.css" rel="stylesheet" type="text/css"/>
     <style>
           /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
@@ -16,7 +15,7 @@
 .btn-primary.active { color: rgba(255, 255, 255, 0.75); }
 .btn-primary { background-color: #4a77d4; background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4); background-image: -ms-linear-gradient(top, #6eb6de, #4a77d4); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6eb6de), to(#4a77d4)); background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4); background-image: -o-linear-gradient(top, #6eb6de, #4a77d4); background-image: linear-gradient(top, #6eb6de, #4a77d4); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#6eb6de, endColorstr=#4a77d4, GradientType=0);  border: 1px solid #3762bc; text-shadow: 1px 1px 1px rgba(0,0,0,0.4); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5); }
 .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] { filter: none; background-color: #4a77d4; }
-.btn-block { width: 100%; display:block; }
+.btn-block { display:block; }
 
 * { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
 
@@ -65,11 +64,6 @@ input {
 }
 input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
 
-        .auto-style1 {
-            text-align: justify;
-            font-size: x-large;
-        }
-
     </style>
 
   <script src="JS/index.js"></script>
@@ -78,10 +72,13 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 <body style="height: 307px">
     <form id="form1" runat="server" method="post">
          <div class="login">
-	<h1 class="auto-style1">Đăng nhập tài khoản</h1>
-    	<input type="text" runat="server" id="txttk" name="u" placeholder="Tài khoản" required="required" />
-        <input type="password" runat="server" id="txtmk" name="p" placeholder="Mật khẩu" required="required" />
-        <asp:Button ID="btDangNhap" class="btn btn-primary btn-block btn-large" runat="server" Text="Đăng nhập" OnClick="BtDanngNhap_Click"  />
+	<h1>Đổi mật khẩu</h1>
+        <input type="text" runat="server" id="Text1" name="u" readonly="readonly" />
+    	<input type="password" runat="server" id="txtmkm" name="p" placeholder="mật khẩu mới" required="required" />
+        <input type="password" runat="server" id="txtnmk" name="p" placeholder="nhập lại mật khẩu" required="required" />
+        <asp:Button ID="btDoiMK" class="btn btn-primary btn-block btn-large" runat="server" Text="Đổi mật khẩu" OnClick="btDoiMK_Click" />
+             <br />
+        <asp:Button ID="btQuayLai" class="btn btn-primary btn-block btn-large" CausesValidation="false" runat="server" Text="Quay lại" Width="302px" />          
 </div> 
     <script src="JS/index.js"></script>
     </form>
