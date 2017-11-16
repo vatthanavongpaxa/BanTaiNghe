@@ -52,7 +52,7 @@
                             <a href="NhaSanXuat.aspx"><i class="fa fa-cogs nav_icon"></i>Quản Lý Loại Sản Phẩm</a>
                         </li>
                          <li>
-                            <a href="#"><i class="fa fa-cogs nav_icon"></i>Quản Lý Phản Hồi</a>
+                            <a href="PhanHoi.aspx"><i class="fa fa-cogs nav_icon"></i>Quản Lý Phản Hồi</a>
                         </li>
                          <li>
                             <a href="#"><i class="fa fa-cogs nav_icon"></i>Quản Lý Tài Khoản</a>

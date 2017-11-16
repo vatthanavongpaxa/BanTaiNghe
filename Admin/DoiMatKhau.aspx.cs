@@ -27,4 +27,9 @@ public partial class Admin_DoiMatKhau : System.Web.UI.Page
             Response.Redirect("~/Admin/DangNhap.aspx");
         }    
     }
+
+    protected void btQuayLai_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Admin/Admin.aspx");
+    }
 }

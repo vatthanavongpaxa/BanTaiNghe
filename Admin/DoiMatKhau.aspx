@@ -78,7 +78,7 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
         <input type="password" runat="server" id="txtnmk" name="p" placeholder="nhập lại mật khẩu" required="required" />
         <asp:Button ID="btDoiMK" class="btn btn-primary btn-block btn-large" runat="server" Text="Đổi mật khẩu" OnClick="btDoiMK_Click" />
              <br />
-        <asp:Button ID="btQuayLai" class="btn btn-primary btn-block btn-large" CausesValidation="false" runat="server" Text="Quay lại" Width="302px" />          
+             <asp:Button ID="btQuayLai" class="btn btn-primary btn-block btn-large" formnovalidate="formnovalidate" CausesValidation="false" runat="server" Text="Quay lại" Width="302px" OnClick="btQuayLai_Click" />          
 </div> 
     <script src="JS/index.js"></script>
     </form>

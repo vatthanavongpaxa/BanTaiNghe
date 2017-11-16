@@ -31,11 +31,11 @@ public partial class Admin_DangNhap : System.Web.UI.Page
         KiemTraNhap(txttk.Value + "",txtmk.Value);
     }
 
-    private void KiemTraNhap(string TaiKhoan, string MatKhau)
+    private void KiemTraNhap(string AD, string MatKhau)
     {
-        TaiKhoan = txttk.Value;
+        AD = txttk.Value;
         MatKhau = txtmk.Value;
-        Object[] dn = new Object[] { TaiKhoan, MatKhau };
+        Object[] dn = new Object[] { AD, MatKhau };
         DataTable dtb = x.GetDataTable("SP_DangNhap1",dn);
         int num = 0;
         if (dtb.Rows.Count > 0)
@@ -44,7 +44,7 @@ public partial class Admin_DangNhap : System.Web.UI.Page
             switch (num)
             {
                 case 3: // Khai báo Session cho phép đăng nhập
-                    Session["TaiKhoan"] = txttk.Value;
+                    Session["AD"] = txttk.Value;
                     Session["MatKhau"] = txtmk.Value;
                     Response.Redirect("~/Admin/Admin.aspx");
                     break;
@@ -54,11 +54,8 @@ public partial class Admin_DangNhap : System.Web.UI.Page
                 case 2: // thông báo sai mật khẩu
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Lỗi: Mật khẩu đăng nhập không đúng!');", true);
                     break;
-                //case 3: //thông báo TenDangNhap đã bị khóa
-                //    ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Lỗi: Tên đăng nhập này đã bị khóa!');", true);
-                //    break;
-                //case 4: // Thông báo phải đổi mật khẩu và chuyển người dùng đến trang DoiMatKhau.aspx
-                //    ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Bạn phải đổi mật khẩu trước khi đăng nhập!');location.href='DoiMatKhau.aspx?userid=" + TenDangNhap + "'", true);
+                //case 4: 
+
                 //    break;
             }
         }
