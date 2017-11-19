@@ -11,7 +11,8 @@ public partial class Admin_DangNhap : System.Web.UI.Page
     XLDL x = new XLDL();
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if(!IsPostBack)
+        x.ASPXComboBox("select MaCV,TenCV from ChucVu", ddlChucVu, "tencv", "macv");
     }
 
    
@@ -28,14 +29,16 @@ public partial class Admin_DangNhap : System.Web.UI.Page
         //{
         //    Response.Write("<script>alert('Đăng Nhập Thất Bại!')</script>");
         //}
-        KiemTraNhap(txttk.Value + "",txtmk.Value);
+        KiemTraNhap(txttk.Value + "",txtmk.Value + "",ddlChucVu.SelectedIndex);
     }
 
-    private void KiemTraNhap(string AD, string MatKhau)
+    private void KiemTraNhap(string AD, string MatKhau, int CV)
     {
         AD = txttk.Value;
         MatKhau = txtmk.Value;
-        Object[] dn = new Object[] { AD, MatKhau };
+        int Quyen = Int32.Parse(ddlChucVu.SelectedValue.ToString());
+        CV = Quyen;
+        Object[] dn = new Object[] { AD, MatKhau,Quyen};
         DataTable dtb = x.GetDataTable("SP_DangNhap1",dn);
         int num = 0;
         if (dtb.Rows.Count > 0)
@@ -46,6 +49,8 @@ public partial class Admin_DangNhap : System.Web.UI.Page
                 case 3: // Khai báo Session cho phép đăng nhập
                     Session["AD"] = txttk.Value;
                     Session["MatKhau"] = txtmk.Value;
+                    Session["CV"] = ddlChucVu.SelectedValue.ToString();
+                    demo.user = Session["CV"].ToString();
                     Response.Redirect("~/Admin/Admin.aspx");
                     break;
                 case 1: //Thông báo tên đăng nhập không tồn tại
@@ -54,9 +59,17 @@ public partial class Admin_DangNhap : System.Web.UI.Page
                 case 2: // thông báo sai mật khẩu
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Lỗi: Mật khẩu đăng nhập không đúng!');", true);
                     break;
-                //case 4: 
-
+                //case 4:
+                //    Session["AD"] = txttk.Value;
+                //    Session["MatKhau"] = txtmk.Value;
+                //    Session["CV"] = ddlChucVu.SelectedValue.ToString();
+                //    demo.user = Session["CV"].ToString();
+                //    Response.Redirect("~/Admin/Admin.aspx");
                 //    break;
+                case 5:
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Lỗi: Quyền truy cập không đúng!');", true);
+                    break;
+
             }
         }
         dtb.Dispose();

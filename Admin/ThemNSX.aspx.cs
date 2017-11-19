@@ -11,7 +11,12 @@ public partial class Admin_ThemNSX : System.Web.UI.Page
     XLDL x = new XLDL();
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        if (!IsPostBack)
+            if (Session["AD"] != null && demo.user == "2")
+            {
+                Response.Redirect("~/Admin/DangNhap.aspx");
+            }
+
     }
 
 

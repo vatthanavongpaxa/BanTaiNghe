@@ -11,7 +11,7 @@ public partial class Admin_SanPham : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
-            if (Session["AD"] == null)
+            if (Session["AD"] == null && demo.user == "2")
             {
                 Response.Redirect("~/Admin/DangNhap.aspx");
             }

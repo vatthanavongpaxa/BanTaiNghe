@@ -11,8 +11,19 @@ public partial class Admin_ThemSanPham : System.Web.UI.Page
     XLDL x = new XLDL();
     protected void Page_Load(object sender, EventArgs e)
     {
+        
         if (!IsPostBack)
-            htdsloaisp();
+        {
+            if(demo.user == "2")
+            {
+                Response.Redirect("~/Admin/DangNhap.aspx");
+            }
+            else
+            {
+                htdsloaisp();
+            }
+        }
+            
     }
     public void htdsloaisp()
     {

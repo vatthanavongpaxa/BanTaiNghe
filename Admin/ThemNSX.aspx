@@ -20,7 +20,7 @@
      <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="button" value="Thêm mới" runat="server" onserverclick="BtThem_ServerClick"  class="btn btn-default" />
-                 <a href="LoaiSanPham.aspx">Quay lại</a>
+                 <a href="NhaSanXuat.aspx">Quay lại</a>
             </div>
         </div>
     </div>

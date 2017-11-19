@@ -81,7 +81,12 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 	<h1 class="auto-style1">Đăng nhập tài khoản</h1>
     	<input type="text" runat="server" id="txttk" name="u" placeholder="Tài khoản" required="required" />
         <input type="password" runat="server" id="txtmk" name="p" placeholder="Mật khẩu" required="required" />
+        <asp:DropDownList ID="ddlChucVu" class="btn btn-primary" runat="server">
+        </asp:DropDownList>
+             <br />
+             <br />
         <asp:Button ID="btDangNhap" class="btn btn-primary btn-block btn-large" runat="server" Text="Đăng nhập" OnClick="BtDanngNhap_Click"  />
+        
 </div> 
     <script src="JS/index.js"></script>
     </form>

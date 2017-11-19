@@ -49,13 +49,13 @@
                             <a href="SanPham.aspx"><i class="fa fa-cogs nav_icon"></i>Quản Lý Sản Phẩm</a>
                         </li>
                         <li>
-                            <a href="NhaSanXuat.aspx"><i class="fa fa-cogs nav_icon"></i>Quản Lý Loại Sản Phẩm</a>
+                            <a href="NhaSanXuat.aspx"><i class="fa fa-cogs nav_icon"></i>Quản Lý Nhà Sản Xuất</a>
                         </li>
                          <li>
                             <a href="PhanHoi.aspx"><i class="fa fa-cogs nav_icon"></i>Quản Lý Phản Hồi</a>
                         </li>
                          <li>
-                            <a href="#"><i class="fa fa-cogs nav_icon"></i>Quản Lý Tài Khoản</a>
+                            <a href="TaiKhoan.aspx"><i class="fa fa-cogs nav_icon"></i>Quản Lý Tài Khoản</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-cogs nav_icon"></i>Quản Lý Hóa Đơn<span class="fa arrow"></span></a>
@@ -96,10 +96,11 @@
                 
                 <div class="clearfix"> </div>
             </div>
-             <form runat="server">
+            <form runat="server">
             <div class="header-right" >
                 <div class="profile_details" runat="server">
-                    <a href="DoiMatKhau.aspx"><asp:Label ID="lbtendn" runat="server" Text="Label"></asp:Label></a> &nbsp;&nbsp;
+                    <a href="DoiMatKhau.aspx"><asp:Label ID="lbtendn" runat="server" Text="Label"></asp:Label></a> &nbsp;
+                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>&nbsp;
                     <asp:LinkButton ID="Link"  runat="server"  CausesValidation="false" OnClick="Link_Click">Đăng Xuất</asp:LinkButton>
                 </div>
                 <div class="clearfix"> </div>

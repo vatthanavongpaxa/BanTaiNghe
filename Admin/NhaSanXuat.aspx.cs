@@ -11,7 +11,7 @@ public partial class Admin_LoaiSanPham : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
-            if (Session["AD"] == null)
+            if (Session["AD"] == null /*&& demo.user == "1" && demo.user == "2"*/)
             {
                 Response.Redirect("~/Admin/DangNhap.aspx");
             }
@@ -40,17 +40,26 @@ public partial class Admin_LoaiSanPham : System.Web.UI.Page
 
     protected void GvNhaSanXuat_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        try
+        if(demo.user=="1")
         {
-            Object[] o = new Object[] { GvNhaSanXuat.DataKeys[e.RowIndex].Value };
-            x.ExecuteQuery("deleteNSX", o);
-            Response.Write("<script>alert('Xóa Dữ Liệu Thành Công !')</script>");
+            try
+            {
+                Object[] o = new Object[] { GvNhaSanXuat.DataKeys[e.RowIndex].Value };
+                x.ExecuteQuery("deleteNSX", o);
+                Response.Write("<script>alert('Xóa Dữ Liệu Thành Công !')</script>");
+                LoadGV();
+            }
+            catch
+            {
+                Response.Write("<script>alert('Xóa Dữ Liệu Thất Bại !')</script>");
+            }
+        }
+        else
+        {
+            Response.Write("<script>alert('Vui lòng đăng nhập bằng tài khoản của quản lý !')</script>");
             LoadGV();
         }
-        catch
-        {
-            Response.Write("<script>alert('Xóa Dữ Liệu Thất Bại !')</script>");
-        }
+        
     }
 
     //protected void GvLoaiSanPham_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -61,15 +70,33 @@ public partial class Admin_LoaiSanPham : System.Web.UI.Page
 
     protected void GvNhaSanXuat_RowDataBound(object sender, GridViewRowEventArgs e)
     {
-        if (e.Row.RowType == DataControlRowType.DataRow
-           && e.Row.RowIndex != GvNhaSanXuat.EditIndex)
-        {
-            (e.Row.Cells[3].Controls[0] as LinkButton).Attributes["onclick"] = "return confirm('Bạn muốn xóa dòng này?');";
-        }
+       
+            if (e.Row.RowType == DataControlRowType.DataRow
+      && e.Row.RowIndex != GvNhaSanXuat.EditIndex)
+            {
+                (e.Row.Cells[3].Controls[0] as LinkButton).Attributes["onclick"] = "return confirm('Bạn muốn xóa dòng này?');";
+            }
+        
+        //if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowIndex != GvNhaSanXuat.EditIndex)
+        //{
+        //    (e.Row.Cells[3].Controls[0] as LinkButton).Attributes["onclick"] = "return confirm('Bạn muốn xóa dòng này?');";
+        //}
+
     }
 
     protected void GvNhaSanXuat_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
     {
-        Response.Redirect("~/Admin/SuaNSX.aspx?MANSX=" + GvNhaSanXuat.DataKeys[e.NewSelectedIndex].Value.ToString());
+        if (demo.user == "1")
+        {
+            Response.Redirect("~/Admin/SuaNSX.aspx?MANSX=" + GvNhaSanXuat.DataKeys[e.NewSelectedIndex].Value.ToString());
+        }
+        else
+        {
+
+            //Response.Redirect("~/Admin/DangNhap.aspx");
+            Response.Write("<script>alert('Vui lòng đăng nhập bằng tài khoản của quản lý !')</script>");
+            LoadGV();
+        }
+        //Response.Redirect("~/Admin/SuaNSX.aspx?MANSX=" + GvNhaSanXuat.DataKeys[e.NewSelectedIndex].Value.ToString());
     }
 }

@@ -19,7 +19,20 @@ public partial class MAU_MANHINH_HOMEPAGE : System.Web.UI.MasterPage
     {
         if (!IsPostBack)
             if (Session["AD"] != null)
+            {
                 lbtendn.Text = "Xin Chào: " + Session["AD"].ToString();
+                if(demo.user == "1")
+                {
+                    Label1.Text = "Chức vụ: Quản lý";
+                }
+                else
+                    if(demo.user == "2")
+                {
+                    Label1.Text = "Chức vụ: Nhân viên";
+                }
+                   
+            }
+                
             else
                 Response.Redirect("~/Admin/DangNhap.aspx");
 
