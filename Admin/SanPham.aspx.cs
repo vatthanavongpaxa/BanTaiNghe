@@ -11,7 +11,7 @@ public partial class Admin_SanPham : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
-            if (Session["AD"] == null && demo.user == "2")
+            if (Session["AD"] == null)
             {
                 Response.Redirect("~/Admin/DangNhap.aspx");
             }
@@ -37,23 +37,41 @@ public partial class Admin_SanPham : System.Web.UI.Page
         
     protected void GvSanPham_SelectedIndexChanging1(object sender, GridViewSelectEventArgs e)
     {
-        Response.Redirect("~/Admin/SuaSanPham.aspx?MASP=" + GvSanPham.DataKeys[e.NewSelectedIndex].Value.ToString());
+        if(demo.user == "1")
+        {
+            Response.Redirect("~/Admin/SuaSanPham.aspx?MASP=" + GvSanPham.DataKeys[e.NewSelectedIndex].Value.ToString());
+        }
+        else
+        {
+            Response.Write("<script>alert('Vui lòng đăng nhập bằng tài khoản của quản lý !')</script>");
+            htdssanpham();
+        }
+       
  
     }
 
     protected void GvSanPham_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        try
+        if(demo.user == "1")
         {
-            Object[] o = new Object[] { GvSanPham.DataKeys[e.RowIndex].Value };
-            x.ExecuteQuery("deleteSanPham", o);
-            Response.Write("<script>alert('Xóa Dữ Liệu Thành Công !')</script>");
+            try
+            {
+                Object[] o = new Object[] { GvSanPham.DataKeys[e.RowIndex].Value };
+                x.ExecuteQuery("deleteSanPham", o);
+                Response.Write("<script>alert('Xóa Dữ Liệu Thành Công !')</script>");
+                htdssanpham();
+            }
+            catch
+            {
+                Response.Write("<script>alert('Xóa Dữ Liệu Thất Bại !')</script>");
+            }
+        }
+        else
+        {
+            Response.Write("<script>alert('Vui lòng đăng nhập bằng tài khoản của quản lý !')</script>");
             htdssanpham();
         }
-        catch
-        {
-            Response.Write("<script>alert('Xóa Dữ Liệu Thất Bại !')</script>");
-        }
+        
     }
 
     protected void GvSanPham_RowDataBound(object sender, GridViewRowEventArgs e)

@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="SuaSanPham.aspx.cs" Inherits="Admin_SuaSanPham" %>
 
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <%--<script src="http://code.jquery.cm/jquery-latest.min.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -64,8 +66,7 @@
          <div class="form-group">
         <asp:Label ID="Label1" runat="server" CssClass="control-label col-md-2" Text="Chi tiết: "></asp:Label>
             <div class="col-md-10">
-                 <CKEditor:CKEditorControl ID="ckeChitiet" runat="server">
-                </CKEditor:CKEditorControl>
+                <CKEditor:CKEditorControl ID="ckeChitiet" runat="server"></CKEditor:CKEditorControl>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ckeChitiet" ErrorMessage="Vui lòng nhập chi tiết !">(*)</asp:RequiredFieldValidator>
             </div>
         </div>

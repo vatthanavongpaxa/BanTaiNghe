@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ThemSanPham.aspx.cs" MasterPageFile="~/Admin/Admin.master" Inherits="Admin_ThemSanPham" %>
 
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -37,8 +39,7 @@
          <div class="form-group">
         <asp:Label ID="Label1" runat="server" CssClass="control-label col-md-2" Text="Chi tiết: "></asp:Label>
             <div class="col-md-10">
-                 <CKEditor:CKEditorControl ID="ckeChitiet" runat="server">
-                </CKEditor:CKEditorControl>
+                <CKEditor:CKEditorControl ID="ckeChitiet" runat="server"></CKEditor:CKEditorControl>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ckeChitiet" ErrorMessage="Vui lòng nhập chi tiết !">(*)</asp:RequiredFieldValidator>
             </div>
         </div>
