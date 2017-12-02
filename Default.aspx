@@ -1,256 +1,521 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MAU_MANHINH/HOMEPAGE.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage_KhachHang.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="TrangWeb_Default" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
-    <script src="js/jssor.slider-21.1.5.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            
-            var jssor_1_SlideshowTransitions = [
-              {$Duration:1200,x:0.3,$During:{$Left:[0.3,0.7]},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:-0.3,$SlideOut:true,$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:-0.3,$During:{$Left:[0.3,0.7]},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:0.3,$SlideOut:true,$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,y:0.3,$During:{$Top:[0.3,0.7]},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,y:-0.3,$SlideOut:true,$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,y:-0.3,$During:{$Top:[0.3,0.7]},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,y:0.3,$SlideOut:true,$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:0.3,$Cols:2,$During:{$Left:[0.3,0.7]},$ChessMode:{$Column:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:0.3,$Cols:2,$SlideOut:true,$ChessMode:{$Column:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,y:0.3,$Rows:2,$During:{$Top:[0.3,0.7]},$ChessMode:{$Row:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,y:0.3,$Rows:2,$SlideOut:true,$ChessMode:{$Row:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,y:0.3,$Cols:2,$During:{$Top:[0.3,0.7]},$ChessMode:{$Column:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,y:-0.3,$Cols:2,$SlideOut:true,$ChessMode:{$Column:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:0.3,$Rows:2,$During:{$Left:[0.3,0.7]},$ChessMode:{$Row:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:-0.3,$Rows:2,$SlideOut:true,$ChessMode:{$Row:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:0.3,y:0.3,$Cols:2,$Rows:2,$During:{$Left:[0.3,0.7],$Top:[0.3,0.7]},$ChessMode:{$Column:3,$Row:12},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:0.3,y:0.3,$Cols:2,$Rows:2,$During:{$Left:[0.3,0.7],$Top:[0.3,0.7]},$SlideOut:true,$ChessMode:{$Column:3,$Row:12},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,$Delay:20,$Clip:3,$Assembly:260,$Easing:{$Clip:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,$Delay:20,$Clip:3,$SlideOut:true,$Assembly:260,$Easing:{$Clip:$Jease$.$OutCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,$Delay:20,$Clip:12,$Assembly:260,$Easing:{$Clip:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,$Delay:20,$Clip:12,$SlideOut:true,$Assembly:260,$Easing:{$Clip:$Jease$.$OutCubic,$Opacity:$Jease$.$Linear},$Opacity:2}
-            ];
-            
-            var jssor_1_options = {
-              $AutoPlay: true,
-              $SlideshowOptions: {
-                $Class: $JssorSlideshowRunner$,
-                $Transitions: jssor_1_SlideshowTransitions,
-                $TransitionsOrder: 1
-              },
-              $ArrowNavigatorOptions: {
-                $Class: $JssorArrowNavigator$
-              },
-              $ThumbnailNavigatorOptions: {
-                $Class: $JssorThumbnailNavigator$,
-                $Cols: 10,
-                $SpacingX: 8,
-                $SpacingY: 8,
-                $Align: 360
-              }
-            };
-            
-            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
-            
-            //responsive code begin
-            //you can remove responsive code if you don't want the slider scales while window resizing
-            function ScaleSlider() {
-                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
-                if (refSize) {
-                    refSize = Math.min(refSize, 800);
-                    jssor_1_slider.$ScaleWidth(refSize);
-                }
-                else {
-                    window.setTimeout(ScaleSlider, 30);
-                }
-            }
-            ScaleSlider();
-            $(window).bind("load", ScaleSlider);
-            $(window).bind("resize", ScaleSlider);
-            $(window).bind("orientationchange", ScaleSlider);
-            //responsive code end
-        });
-        
-    </script>
-    <style>
-        /* jssor slider arrow navigator skin 05 css */
-        /*
-        .jssora05l                  (normal)
-        .jssora05r                  (normal)
-        .jssora05l:hover            (normal mouseover)
-        .jssora05r:hover            (normal mouseover)
-        .jssora05l.jssora05ldn      (mousedown)
-        .jssora05r.jssora05rdn      (mousedown)
-        */
-        .jssora05l, .jssora05r {
-            display: block;
-            position: absolute;
-            /* size of arrow element */
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            background: url('img/a17.png') no-repeat;
-            overflow: hidden;
-        }
-
-        .jssora05l {
-            background-position: -10px -40px;
-        }
-
-        .jssora05r {
-            background-position: -70px -40px;
-        }
-
-        .jssora05l:hover {
-            background-position: -130px -40px;
-        }
-
-        .jssora05r:hover {
-            background-position: -190px -40px;
-        }
-
-        .jssora05l.jssora05ldn {
-            background-position: -250px -40px;
-        }
-
-        .jssora05r.jssora05rdn {
-            background-position: -310px -40px;
-        }
-
-        /* jssor slider thumbnail navigator skin 01 css */
-        /*
-        .jssort01 .p            (normal)
-        .jssort01 .p:hover      (normal mouseover)
-        .jssort01 .p.pav        (active)
-        .jssort01 .p.pdn        (mousedown)
-        */
-        .jssort01 .p {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 72px;
-            height: 72px;
-        }
-
-        .jssort01 .t {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .jssort01 .w {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            height: 100%;
-        }
-
-        .jssort01 .c {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 68px;
-            height: 68px;
-            border: #000 2px solid;
-            box-sizing: content-box;
-            background: url('img/t01.png') -800px -800px no-repeat;
-            _background: none;
-        }
-
-        .jssort01 .pav .c {
-            top: 2px;
-            _top: 0px;
-            left: 2px;
-            _left: 0px;
-            width: 68px;
-            height: 68px;
-            border: #000 0px solid;
-            _border: #fff 2px solid;
-            background-position: 50% 50%;
-        }
-
-        .jssort01 .p:hover .c {
-            top: 0px;
-            left: 0px;
-            width: 70px;
-            height: 70px;
-            border: #fff 1px solid;
-            background-position: 50% 50%;
-        }
-
-        .jssort01 .p.pdn .c {
-            background-position: 50% 50%;
-            width: 68px;
-            height: 68px;
-            border: #000 2px solid;
-        }
-
-        * html .jssort01 .c, * html .jssort01 .pdn .c, * html .jssort01 .pav .c {
-            /* ie quirks mode adjust */
-            width /**/: 72px;
-            height /**/: 72px;
-        }
-    </style>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div>
-        <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 700px; height: 600px; overflow: hidden; visibility: hidden; background-color: #24262e;">
-        <!-- Loading Screen -->
-        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
-            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
-            <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
-        </div>
-        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 700px; height: 600px; overflow: hidden;">
-            <div data-p="144.50" style="display: none;">
-                <a href="../Trang_Web/SanPham.aspx?MALOAI=1"><img data-u="image" src="img/01.jpg" /></a>
-                <img data-u="thumb" src="img/thumb-01.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <a href="../Trang_Web/SanPham.aspx?MALOAI=2"><img data-u="image" src="img/02.jpg" /></a>
-                <img data-u="thumb" src="img/thumb-02.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <a href="../Trang_Web/SanPham.aspx?MALOAI=3"><img data-u="image" src="img/03.jpg" /></a>
-                <img data-u="thumb" src="img/thumb-03.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <a href="../Trang_Web/SanPham.aspx?MALOAI=4"><img data-u="image" src="img/04.jpg" /></a>
-                <img data-u="thumb" src="img/thumb-04.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <a href="../Trang_Web/SanPham.aspx?MALOAI=5"><img data-u="image" src="img/05.jpg" /></a>
-                <img data-u="thumb" src="img/thumb-05.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <a href="../Trang_Web/SanPham.aspx?MALOAI=6"><img data-u="image" src="img/06.jpg" /></a>
-                <img data-u="thumb" src="img/thumb-06.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <a href="../Trang_Web/SanPham.aspx?MALOAI=7"><img data-u="image" src="img/07.jpg" /></a>
-                <img data-u="thumb" src="img/thumb-07.jpg" />
-            </div>
-           
-        </div>
-        <!-- Thumbnail Navigator -->
-        <%--<div data-u="thumbnavigator" class="jssort01" style="position:absolute;left:0px;bottom:0px;width:700px;height:100px;" data-autocenter="1">
-            <!-- Thumbnail Item Skin Begin -->
-            <div data-u="slides" style="cursor: default;">
-                <div data-u="prototype" class="p">
-                    <div class="w">
-                        <div data-u="thumbnailtemplate" class="t"></div>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+
+    <div id="all">
+        <div id="content">
+
+            <div class="container">
+                <div class="col-md-12">
+                    <div id="main-slider">
+                        <div class="item">
+                            <img class="img-responsive" src="../obajuCSS/img/img/01.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="../obajuCSS/img/img/02.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="../obajuCSS/img/img/03.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="../obajuCSS/img/img/04.jpg" alt="">
+                        </div>
                     </div>
-                    <div class="c"></div>
+                    <!-- /#main-slider -->
                 </div>
-            </div>--%>
-            <!-- Thumbnail Item Skin End -->
-        <%--</div>--%>
-        <!-- Arrow Navigator -->
-        <span data-u="arrowleft" class="jssora05l" style="top:300px;left:8px;width:40px;height:40px;"></span>
-        <span data-u="arrowright" class="jssora05r" style="top:300px;right:8px;width:40px;height:40px;"></span>
+            </div>
+
+            <!-- *** ADVANTAGES HOMEPAGE ***
+ _________________________________________________________ -->
+            <div id="advantages">
+
+                <div class="container">
+                    <div class="same-height-row">
+                        <div class="col-sm-4">
+                            <div class="box same-height clickable">
+                                <div class="icon">
+                                    <i class="fa fa-heart"></i>
+                                </div>
+
+                                <h3><a href="#">We love our customers</a></h3>
+                                <p>We are known to provide best possible service ever</p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="box same-height clickable">
+                                <div class="icon">
+                                    <i class="fa fa-tags"></i>
+                                </div>
+
+                                <h3><a href="#">Best prices</a></h3>
+                                <p>You can check that the height of the boxes adjust when longer text like this one is used in one of them.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="box same-height clickable">
+                                <div class="icon">
+                                    <i class="fa fa-thumbs-up"></i>
+                                </div>
+
+                                <h3><a href="#">100% satisfaction guaranteed</a></h3>
+                                <p>Free returns on everything for 3 months.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+
+                </div>
+                <!-- /.container -->
+
+            </div>
+            <!-- /#advantages -->
+
+            <!-- *** ADVANTAGES END *** -->
+
+            <!-- *** HOT PRODUCT SLIDESHOW ***
+ _________________________________________________________ -->
+            <div id="hot">
+
+                <div class="box">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <h2>Hot this week</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+
+                    <%--                        <div class="item">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="detail.html">
+                                                <img src="../Hinh/01.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="detail.html">
+                                                <img src="../Hinh/01.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.html" class="invisible">
+                                    <img src="../Hinh/01.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="detail.html">Fur coat with very but very very long name</a></h3>
+                                    <p class="price">$143.00</p>
+                                </div>
+                                <!-- /.text -->
+                            </div>
+                            <!-- /.product -->
+                        </div>
+
+                        <div class="item">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="detail.html">
+                                                <img src="/obajuCSS/img/product2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="detail.html">
+                                                <img src="/obajuCSS/img/product2_2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.html" class="invisible">
+                                    <img src="/obajuCSS/img/product2.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="detail.html">White Blouse Armani</a></h3>
+                                    <p class="price"><del>$280</del> $143.00</p>
+                                </div>
+                                <!-- /.text -->
+
+                                <div class="ribbon sale">
+                                    <div class="theribbon">SALE</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+                                <!-- /.ribbon -->
+
+                                <div class="ribbon new">
+                                    <div class="theribbon">NEW</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+                                <!-- /.ribbon -->
+
+                                <div class="ribbon gift">
+                                    <div class="theribbon">GIFT</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+                                <!-- /.ribbon -->
+                            </div>
+                            <!-- /.product -->
+                        </div>
+
+                        <div class="item">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="detail.html">
+                                                <img src="img/product3.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="detail.html">
+                                                <img src="img/product3_2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.html" class="invisible">
+                                    <img src="img/product3.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="detail.html">Black Blouse Versace</a></h3>
+                                    <p class="price">$143.00</p>
+                                </div>
+                                <!-- /.text -->
+                            </div>
+                            <!-- /.product -->
+                        </div>
+
+                        <div class="item">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="detail.html">
+                                                <img src="img/product3.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="detail.html">
+                                                <img src="img/product3_2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.html" class="invisible">
+                                    <img src="img/product3.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="detail.html">Black Blouse Versace</a></h3>
+                                    <p class="price">$143.00</p>
+                                </div>
+                                <!-- /.text -->
+                            </div>
+                            <!-- /.product -->
+                        </div>
+
+                        <div class="item">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="detail.html">
+                                                <img src="img/product2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="detail.html">
+                                                <img src="img/product2_2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.html" class="invisible">
+                                    <img src="img/product2.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="detail.html">White Blouse Versace</a></h3>
+                                    <p class="price">$143.00</p>
+                                </div>
+                                <!-- /.text -->
+
+                                <div class="ribbon new">
+                                    <div class="theribbon">NEW</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+                                <!-- /.ribbon -->
+                            </div>
+                            <!-- /.product -->
+                        </div>
+
+                        <div class="item">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="detail.html">
+                                                <img src="img/product1.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="detail.html">
+                                                <img src="img/product1_2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.html" class="invisible">
+                                    <img src="img/product1.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="detail.html">Fur coat</a></h3>
+                                    <p class="price">$143.00</p>
+                                </div>
+                                <!-- /.text -->
+
+                                <div class="ribbon gift">
+                                    <div class="theribbon">GIFT</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+                                <!-- /.ribbon -->
+
+                            </div>
+                            <!-- /.product -->
+                        </div>
+                        <!-- /.col-md-4 -->
+
+                        <div class="item">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="detail.html">
+                                                <img src="img/product2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="detail.html">
+                                                <img src="img/product2_2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.html" class="invisible">
+                                    <img src="img/product2.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="detail.html">White Blouse Armani</a></h3>
+                                    <p class="price"><del>$280</del> $143.00</p>
+                                </div>
+                                <!-- /.text -->
+
+                                <div class="ribbon sale">
+                                    <div class="theribbon">SALE</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+                                <!-- /.ribbon -->
+
+                                <div class="ribbon new">
+                                    <div class="theribbon">NEW</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+                                <!-- /.ribbon -->
+
+                                <div class="ribbon gift">
+                                    <div class="theribbon">GIFT</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+                                <!-- /.ribbon -->
+                            </div>
+                            <!-- /.product -->
+                        </div>
+
+                        <div class="item">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="detail.html">
+                                                <img src="img/product3.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="detail.html">
+                                                <img src="img/product3_2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.html" class="invisible">
+                                    <img src="img/product3.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="detail.html">Black Blouse Versace</a></h3>
+                                    <p class="price">$143.00</p>
+                                </div>
+                                <!-- /.text -->
+                            </div>
+                            <!-- /.product -->
+                        </div>--%>
+
+                    <div class="product-slider">
+                        <asp:Repeater ID="Repeater_SP" runat="server">
+                            <ItemTemplate>
+                                <div class="item">
+                                    <div class="product">
+                                        <div class="flip-container">
+                                            <div class="flipper">
+                                                <div class="front">
+                                                    <%--<a href="detail.html">--%>
+                                                    <%--<img src="../Hinh/01.jpg" alt="" class="img-responsive">--%>
+                                                    <asp:HyperLink ID="HyperLink_SP1" runat="server" NavigateUrl='<%# "~/TrangWeb/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>'>
+                                                        <asp:Image ID="Image_img1" runat="server" ImageUrl='<%# "~/HINH/"+Eval("HINH") %>' CssClass="img-responsive" />
+                                                    </asp:HyperLink>
+                                                    <%--</a>--%>
+                                                </div>
+                                                <div class="back">
+                                                    <asp:HyperLink ID="HyperLink_SP2" runat="server" NavigateUrl='<%# "~/TrangWeb/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>'>
+                                                        <asp:Image ID="Image_img2" runat="server" ImageUrl='<%# "~/HINH/"+Eval("HINH") %>' CssClass="img-responsive" />
+                                                    </asp:HyperLink>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <asp:HyperLink ID="HyperLink_SP3" runat="server" CssClass="invisible" NavigateUrl='<%# "~/TrangWeb/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>'>
+                                            <asp:Image ID="Image_img3" runat="server" ImageUrl='<%# "~/HINH/"+Eval("HINH") %>' CssClass="img-responsive" />
+                                        </asp:HyperLink>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="text">
+                                            <h3>
+                                                <asp:HyperLink ID="HyperLink_SP4" runat="server" NavigateUrl='<%# "~/TrangWeb/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>' Text='<%# Eval("TENSP") %>'></asp:HyperLink>
+                                            </h3>
+                                            <%--<p class="price">$143.00</p>--%>
+                                        </div>
+                                        <!-- /.text -->
+                                    </div>
+                                    <!-- /.product -->
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+
+
+
+
+                        <!-- /.product-slider -->
+                    </div>
+
+                    <!-- /.container -->
+                </div>
+
+            </div>
+        </div>
+
+        <!-- /#hot -->
+
+        <!-- *** HOT END *** -->
+
+        <!-- *** GET INSPIRED ***
+ _________________________________________________________ -->
+        <div class="container" data-animate="fadeInUpBig">
+            <div class="col-md-12">
+                <div class="box slideshow">
+                    <h3>Get Inspired   
+                    </h3>
+                    <p class="lead">Get the inspiration from our world class designers</p>
+                    <div id="get-inspired" class="owl-carousel owl-theme">
+                        <div class="item">
+                            <a href="#">
+                                <img src="img/getinspired1.jpg" alt="Get inspired" class="img-responsive">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#">
+                                <img src="img/getinspired2.jpg" alt="Get inspired" class="img-responsive">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#">
+                                <img src="img/getinspired3.jpg" alt="Get inspired" class="img-responsive">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- *** GET INSPIRED END *** -->
+
+        <!-- *** BLOG HOMEPAGE ***
+ _________________________________________________________ -->
+
+        <div class="box text-center" data-animate="fadeInUp">
+            <div class="container">
+                <div class="col-md-12">
+                    <h3 class="text-uppercase">From our blog</h3>
+
+                    <p class="lead">
+                        What's new in the world of fashion? <a href="blog.html">Check our blog!</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="col-md-12" data-animate="fadeInUp">
+
+                <div id="blog-homepage" class="row">
+                    <div class="col-sm-6">
+                        <div class="post">
+                            <h4><a href="post.html">Fashion now</a></h4>
+                            <p class="author-category">
+                                By <a href="#">John Slim</a> in <a href="#">Fashion and style</a>
+                            </p>
+                            <hr>
+                            <p class="intro">
+                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+                                    ultricies mi vitae est. Mauris placerat eleifend leo.
+                            </p>
+                            <p class="read-more">
+                                <a href="post.html" class="btn btn-primary">Continue reading</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="post">
+                            <h4><a href="post.html">Who is who - example blog post</a></h4>
+                            <p class="author-category">
+                                By <a href="#">John Slim</a> in <a href="#">About Minimal</a>
+                            </p>
+                            <hr>
+                            <p class="intro">
+                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+                                    ultricies mi vitae est. Mauris placerat eleifend leo.
+                            </p>
+                            <p class="read-more">
+                                <a href="post.html" class="btn btn-primary">Continue reading</a>
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /#blog-homepage -->
+            </div>
+        </div>
+        <!-- /.container -->
+
+        <!-- *** BLOG HOMEPAGE END *** -->
+
+
     </div>
-    </div>
+    <!-- /#content -->
+
+    <!-- /#all -->
 </asp:Content>
+

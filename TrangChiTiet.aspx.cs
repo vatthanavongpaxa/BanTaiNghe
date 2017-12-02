@@ -6,19 +6,21 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 
-public partial class TrangWeb_Default : System.Web.UI.Page
+public partial class TrangWeb_TrangChiTiet : System.Web.UI.Page
 {
     XLDL x = new XLDL();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            Load_SanPham();
+            Load_CTSP();
         }
     }
-    public void Load_SanPham()
+    public void Load_CTSP()
     {
-        Repeater_SP.DataSource = x.getData("Select * from SanPham");
-        Repeater_SP.DataBind();
+
+        Repeater_CTSP.DataSource = x.getData("SELECT TOP 1 * FROM SanPham where MANSX = 3");
+        Repeater_CTSP.DataBind();
     }
+
 }
