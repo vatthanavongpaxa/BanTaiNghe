@@ -1,6 +1,41 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage_KhachHang.master" AutoEventWireup="true" CodeFile="TrangDangKy.aspx.cs" Inherits="TrangWeb_TrangDangKy" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <style type="text/css">
+        .box
+        {
+            position: relative;
+        top: 0px;
+        left: 0px;
+    }
+        .box box1{
+              margin:auto;
+    position:absolute;
+    top:0; left:0; right:0; bottom:0;
+        }
+         #content {
+            height: 1150px;
+        }
+    .auto-style1 {
+        text-align: justify;
+        width: 872px;
+    }
+    .auto-style2 {
+        color: #777;
+        text-align: justify;
+    }
+    .auto-style3 {
+        font-size: 21px;
+        font-weight: 300;
+        line-height: 1.4;
+        text-align: justify;
+        margin-bottom: 20px;
+    }
+    .auto-style4 {
+        text-align: justify;
+        width: 872px;
+    }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <script type="text/javascript">
@@ -12,8 +47,7 @@
         });
 
     </script>
-    <div id="all">
-
+    <div id="all" class="box">
         <div id="content">
             <div class="container">
 
@@ -28,12 +62,12 @@
                 </div>--%>
 
                 <div class="col-md-6">
-                    <div class="box">
-                        <h1>ĐĂNG KÝ TÀI KHOẢN</h1>
+                    <div class="box1">
+                        <h1 class="auto-style4">ĐĂNG KÝ TÀI KHOẢN</h1>
 
-                        <p class="lead">Bạn đã đăng ký tài khoản của chúng tôi chưa ?</p>
-                        <p>Hãy đăng ký ngay để nhận được những ưu đãi và tiện ích chúng tôi mang lại dành cho bạn</p>
-                        <p class="text-muted">Nếu bạn có thắc mắc vui lòng<a href="contact.html"> liên hệ với chúng tôi</a>, phục vụ 24/7.</p>
+                        <p class="auto-style3">Bạn đã đăng ký tài khoản của chúng tôi chưa ?</p>
+                        <p class="auto-style1">Hãy đăng ký ngay để nhận được những ưu đãi và tiện ích chúng tôi mang lại dành cho bạn</p>
+                        <p class="auto-style2">Nếu bạn có thắc mắc vui lòng<a href="contact.html"> liên hệ với chúng tôi</a>, phục vụ 24/7.</p>
 
                         <hr>
                         <div class="form-group">
@@ -102,7 +136,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6" runat="server" id="fdangnhap">
+                <%--<div class="col-md-6" runat="server" id="fdangnhap">
                     <div class="box">
                         <h1>ĐĂNG NHẬP TÀI KHOẢN</h1>
                         <div class="form-group">
@@ -128,7 +162,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div>--%>
 
 
             </div>

@@ -1,6 +1,91 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage_KhachHang.master" AutoEventWireup="true" CodeFile="TrangSanPham.aspx.cs" Inherits="TrangWeb_TrangSanPham" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <%--<style type="text/css">
+        .col-lg-12 {
+            margin-top: 25px;
+            margin-left:20px;
+        }
+      .col-sm-6{
+          height:500px;
+          
+          
+      }
+        .product-name {
+            color: black;
+            
+        }
+         .glyphicon-shopping-cart{
+            color:white;
+        }
+         .glyphicon-shopping-cart:hover{
+            color:#66CD00;
+        }
+            .product-name:hover {
+                text-decoration: none;
+                color: red;
+            }
+
+        .show {
+            -webkit-transition-duration: 0.5s; /*Webkit: Animation duration*/
+            -moz-transition-duration: 0.5s; /*Mozilla duration version*/
+            -o-transition-duration: 0.5s; /*Opera duration version*/
+            margin: 0 10px 5px 0; /*margin between images*/
+        }
+
+            .show:hover {
+                -webkit-transform: scale(1.1); /*Webkit: Scale up image to 1.2x original size*/
+                -moz-transform: scale(1.1); /*Mozilla scale version*/
+                -o-transform: scale(1.1); /*Opera scale version*/
+            }
+           .buy{
+               height:33px;
+               width:45px;
+               border-radius:7px ;
+               background-color:rgba(102, 205, 0,0.5);
+               border:1px solid #66CD00;
+               
+           }
+           .buy:hover{
+                background-color:rgba(255, 185, 15,0.5);
+           }
+           .line{           
+            color:#F7931E;
+             
+        }
+    </style>
+    
+           <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+    
+<script>
+    
+   jQuery(function($) {
+   $('.buy').click(function(){
+           var str =$(this).attr('data');
+      
+        $.ajax({
+            type: "get",
+            url: "TrangGioHang.aspx",
+            data: 'MaSP=' + str,
+            contentType: "application/json; charset=utf-8",
+            success: function () { // Required Callback Function
+                $.notify("Thêm Thành Công!", { autoHideDelay: 1000, className: 'success' });
+},
+     error:function(){
+         $.notify("Thêm Thất Bại!", { autoHideDelay: 1000 });
+       }
+        });
+            });
+                    });
+    
+  
+</script> 
+    <script src="obajuCSS/js/bootstrap.min.js"></script>
+    <link href="obajuCSS/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>--%>
+    <link href="../css/Style.css" rel="stylesheet" type="text/css" />--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="all">
@@ -166,31 +251,33 @@
                                         <div class="flip-container">
                                             <div class="flipper">
                                                 <div class="front">
-                                                    <asp:HyperLink ID="HyperLink_SP1" runat="server" NavigateUrl='<%# "~/TrangWeb/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>'>
+                                                    <asp:HyperLink ID="HyperLink_SP1" runat="server" NavigateUrl='<%# "~/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>'>
                                                         <asp:Image ID="Image_img1" runat="server" ImageUrl='<%# "~/HINH/"+Eval("HINH") %>' CssClass="img-responsive" />
                                                     </asp:HyperLink>
                                                     &nbsp;&nbsp;
                                                 </div>
                                                 <div class="back">
-                                                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# "~/TrangWeb/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>'>
+                                                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# "~/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>'>
                                                         <asp:Image ID="Image_img2" runat="server" ImageUrl='<%# "~/HINH/"+Eval("HINH") %>' CssClass="img-responsive" />
                                                     </asp:HyperLink>
                                                     &nbsp;&nbsp;
                                                 </div>
                                             </div>
                                         </div>
-                                        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# "~/TrangWeb/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>'>
+                                        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# "~/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>'>
                                             <asp:Image ID="Image_img3" runat="server" ImageUrl='<%# "~/HINH/"+Eval("HINH") %>' CssClass="img-responsive" />
                                         </asp:HyperLink>
                                         &nbsp;&nbsp;<div class="text">
                                             <h3>
-                                                <asp:HyperLink ID="HyperLink_SP4" runat="server" NavigateUrl='<%# "~/TrangWeb/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>' Text='<%# Eval("TENSP") %>'></asp:HyperLink></h3>
+                                                <asp:HyperLink ID="HyperLink_SP4" runat="server" NavigateUrl='<%# "~/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>' Text='<%# Eval("TENSP") %>'></asp:HyperLink></h3>
                                             <p class="price">
                                                 <asp:Label ID="Label_Gia" runat="server" Text='<%# string.Format("{0:#,##0 VNĐ}",Eval("GIA")) %>'></asp:Label>
                                             </p>
+
                                         </div>
                                     </div>
                                     <!-- /.product -->
+
                                 </div>
                             </ItemTemplate>
                         </asp:Repeater>

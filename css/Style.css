@@ -1,0 +1,149 @@
+﻿
+
+/*
+    chỉnh menu
+     */
+
+.danhmuc{
+     background-color:DimGray;
+     height:50px;
+     border-radius:3px;
+     color:white;
+     padding:14px 16px;
+     text-align:center;
+ }
+
+ .drop{
+       
+    background-color:white;
+    margin-top:-10px;
+ }
+ .hpltheloai {
+    color: black;
+  
+    text-decoration:none;
+    display: block;
+    width:360px;
+}
+
+
+#ves-verticalmenu .navbar-nav > li > a {
+  display: block;
+  color: #444;
+  font-size: 13px;
+  padding: 14px 10px 13px 20px;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+#ves-verticalmenu .navbar-nav > li > a:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #F7941E;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  -moz-transform-origin: 0 50%;
+  -ms-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+#ves-verticalmenu .navbar-nav > li > a:hover {
+  color: white !important;
+}
+
+
+#ves-verticalmenu .navbar-nav > li > a:hover .caret:after, #ves-verticalmenu .navbar-nav > li > a:active .caret:after, #ves-verticalmenu .navbar-nav > li > a:focus .caret:after {
+  color: white;
+}
+#ves-verticalmenu .navbar-nav > li.last a, #ves-verticalmenu .navbar-nav > li:last-child a {
+  border: 0;
+}
+#ves-verticalmenu .navbar-nav > li:hover a::before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+#ves-verticalmenu .navbar-nav > li:hover > a {
+  color: white;
+}
+
+/*chỉnh hover xoay giỏ hàng*/
+.glyphicon-shopping-cart:hover{
+animation: xoayanhlientuc1 2s linear infinite;
+-moz-animation: xoayanhlientuc1 2s linear infinite;
+-webkit-animation: xoayanhlientuc1 2s linear infinite;
+-o-animation: xoayanhlientuc1 2s linear infinite;
+}
+
+@keyframes xoayanhlientuc1{
+    from {-webkit-transform:rotate(0deg);
+-moz-transform:rotate(0deg);
+-ms-transform:rotate(0deg);
+-o-transform:rotate(0deg);
+transform:rotate(0deg);}
+    to {-webkit-transform:rotate(360deg);
+-moz-transform:rotate(360deg);
+-ms-transform:rotate(360deg);
+-o-transform:rotate(360deg);
+transform:rotate(360deg);}
+}
+/* Hien thi cho Safari and Chrome */
+@-webkit-keyframes xoayanhlientuc1 {
+    from {-webkit-transform:rotate(0deg);
+-moz-transform:rotate(0deg);
+-ms-transform:rotate(0deg);
+-o-transform:rotate(0deg);
+transform:rotate(0deg);}
+    to {-webkit-transform:rotate(360deg);
+-moz-transform:rotate(360deg);
+-ms-transform:rotate(360deg);
+-o-transform:rotate(360deg);
+transform:rotate(360deg);}
+
+/* Hien thi cho Firefox */
+@-moz-keyframes xoayanhlientuc1{
+    from {-webkit-transform:rotate(0deg);
+-moz-transform:rotate(0deg);
+-ms-transform:rotate(0deg);
+-o-transform:rotate(0deg);
+transform:rotate(0deg);}
+    to {-webkit-transform:rotate(360deg);
+-moz-transform:rotate(360deg);
+-ms-transform:rotate(360deg);
+-o-transform:rotate(360deg);
+transform:rotate(360deg);}
+}
+
+/* Hien thi cho Opera */
+@-o-keyframes xoayanhlientuc1{
+    from {-webkit-transform:rotate(0deg);
+-moz-transform:rotate(0deg);
+-ms-transform:rotate(0deg);
+-o-transform:rotate(0deg);
+transform:rotate(0deg);}
+    to {-webkit-transform:rotate(360deg);
+-moz-transform:rotate(360deg);
+-ms-transform:rotate(360deg);
+-o-transform:rotate(360deg);
+transform:rotate(360deg);}
+}

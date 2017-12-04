@@ -13,6 +13,10 @@ public partial class TrangWeb_TrangGioHang : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            if(Session["User"]==null)
+            {
+                Response.Redirect("~/DangNhapKH.aspx");
+            }
             LoadGioHang();
         }
 
@@ -25,7 +29,7 @@ public partial class TrangWeb_TrangGioHang : System.Web.UI.Page
 
             DataTable dt = x.getData("SELECT * FROM SANPHAM WHERE MASP = " + maSP);
             double donGia = double.Parse(dt.Rows[0]["GIA"].ToString());
-            int soLuong = 1;
+            int soLuong =1;
             string tenSP = dt.Rows[0]["TENSP"].ToString();
             themVaoGioHang(maSP, tenSP, donGia, soLuong);
         }
@@ -34,13 +38,13 @@ public partial class TrangWeb_TrangGioHang : System.Web.UI.Page
             DataTable dt = new DataTable();
             dt = (DataTable)Session["GioHang"];
 
-            //double tongThanhTien = 0;
-            //foreach (DataRow r in dt.Rows)
-            //{
-            //    r["THANHTIEN"] = Convert.ToInt32(r["SOLUONG"]) * Convert.ToDouble(r["GIA"]);
-            //    tongThanhTien += Convert.ToDouble(r["THANHTIEN"]);
-            //    lbTongThanhTien.Text = string.Format("{0:0,0 VNĐ}", double.Parse(tongThanhTien.ToString()));
-            //}
+            double tongThanhTien = 0;
+            foreach (DataRow r in dt.Rows)
+            {
+                r["THANHTIEN"] = Convert.ToInt32(r["SOLUONG"]) * Convert.ToDouble(r["GIA"]);
+                tongThanhTien += Convert.ToDouble(r["THANHTIEN"]);
+                //lbTongThanhTien.Text = string.Format("{0:0,0 VNĐ}", double.Parse(tongThanhTien.ToString()));
+            }
             GridView_GioHang.DataSource = dt;
             GridView_GioHang.DataBind();
         }
@@ -92,5 +96,32 @@ public partial class TrangWeb_TrangGioHang : System.Web.UI.Page
             }
         }
         return dong;
+    }
+
+    protected void LinkButton_CapNhat_Click(object sender, EventArgs e)
+    {
+        DataTable dt = (DataTable)Session["GioHang"];
+        foreach (GridViewRow r in GridView_GioHang.Rows)
+        {
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (Convert.ToString(GridView_GioHang.DataKeys[r.DataItemIndex].Value) == dr["MASP"].ToString())
+                {
+                    TextBox sl = (TextBox)r.Cells[3].FindControl("TextBox_SoLuong");
+                    if (Convert.ToInt32(sl.Text) <= 0)
+                        dt.Rows.Remove(dr);
+                    else
+                        dr["SOLUONG"] = sl.Text;
+                    break;
+                }
+            }
+        }
+        Session["GioHang"] = dt;
+        Response.Redirect("~/TrangGioHang.aspx");
+    }
+
+    protected void LinkButton_ThanhToan_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/TrangThanhToan.aspx");
     }
 }

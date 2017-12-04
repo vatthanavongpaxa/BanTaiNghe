@@ -8,7 +8,7 @@
         <div id="content">
             <div class="container">
 
-                <div class="col-md-12">
+                <%--<div class="col-md-12">
 
                     <ul class="breadcrumb">
                         <li><a href="#">Home</a>
@@ -16,7 +16,7 @@
                         <li>My account</li>
                     </ul>
 
-                </div>
+                </div>--%>
 
                 <div class="col-md-3">
                     <!-- *** CUSTOMER MENU ***
@@ -24,18 +24,18 @@
                     <div class="panel panel-default sidebar-menu">
 
                         <div class="panel-heading">
-                            <h3 class="panel-title">Customer section</h3>
+                            <h3 class="panel-title">Chức năng khách hàng</h3>
                         </div>
 
                         <div class="panel-body">
 
                             <ul class="nav nav-pills nav-stacked">
                                 <li>
-                                    <a href="customer-account.html"><i class="fa fa-user"></i>My account</a>
+                                    <a href="customer-account.html"><i class="fa fa-user"></i>Tài khoản của tôi</a>
                                 </li>
                                 <li>
                                     <%--<a href="index.html"><i class="fa fa-sign-out"></i>Logout</a>--%>
-                                    <asp:LinkButton ID="LinkButton_DangXuat" runat="server"><i class="fa fa-sign-out"></i> Đăng Xuất</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton_DangXuat" OnClick="LinkButton_DangXuat_Click" runat="server"><i class="fa fa-sign-out"></i> Đăng Xuất</asp:LinkButton>
                                 </li>
                             </ul>
                         </div>
@@ -48,9 +48,9 @@
 
                 <div class="col-md-9">
                     <div class="box">
-                        <h1>My account</h1>
-                        <p class="lead">Change your personal details or your password here.</p>
-                        <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                        <h1>Tài khoản khách hàng</h1>
+                       <%-- <p class="lead">Change your personal details or your password here.</p>
+                        <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>--%>
 
                         <h3>Đổi mật khẩu</h3>
 
@@ -162,5 +162,6 @@
             <!-- /.container -->
         </div>
         <!-- /#content -->
+        </div>
 </asp:Content>
 

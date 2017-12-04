@@ -11,16 +11,39 @@
                 <div class="col-md-12">
                     <div id="main-slider">
                         <div class="item">
-                            <img class="img-responsive" src="../obajuCSS/img/img/01.jpg" alt="">
+                            <a href="TrangSanPham.aspx?MaLoai=1">
+                                <img class="img-responsive" src="../obajuCSS/img/img/01.jpg" alt="">
+                            </a>
                         </div>
                         <div class="item">
-                            <img class="img-responsive" src="../obajuCSS/img/img/02.jpg" alt="">
+                            <a href="TrangSanPham.aspx?MaLoai=2">
+                                <img class="img-responsive" src="../obajuCSS/img/img/02.jpg" alt="">
+                            </a>
                         </div>
                         <div class="item">
-                            <img class="img-responsive" src="../obajuCSS/img/img/03.jpg" alt="">
+                            <a href="TrangSanPham.aspx?MaLoai=3">
+                                <img class="img-responsive" src="../obajuCSS/img/img/03.jpg" alt="">
+                            </a>
                         </div>
                         <div class="item">
-                            <img class="img-responsive" src="../obajuCSS/img/img/04.jpg" alt="">
+                            <a href="TrangSanPham.aspx?MaLoai=4">
+                                <img class="img-responsive" src="../obajuCSS/img/img/04.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="TrangSanPham.aspx?MaLoai=5">
+                                <img class="img-responsive" src="../obajuCSS/img/img/05.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="TrangSanPham.aspx?MaLoai=6">
+                                <img class="img-responsive" src="../obajuCSS/img/img/06.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="TrangSanPham.aspx?MaLoai=7">
+                                <img class="img-responsive" src="../obajuCSS/img/img/07.jpg" alt="">
+                            </a>
                         </div>
                     </div>
                     <!-- /#main-slider -->
@@ -29,7 +52,7 @@
 
             <!-- *** ADVANTAGES HOMEPAGE ***
  _________________________________________________________ -->
-            <div id="advantages">
+            <%-- <div id="advantages">
 
                 <div class="container">
                     <div class="same-height-row">
@@ -71,7 +94,7 @@
                 </div>
                 <!-- /.container -->
 
-            </div>
+            </div>--%>
             <!-- /#advantages -->
 
             <!-- *** ADVANTAGES END *** -->
@@ -421,7 +444,7 @@
 
         <!-- *** GET INSPIRED ***
  _________________________________________________________ -->
-        <div class="container" data-animate="fadeInUpBig">
+        <%--  <div class="container" data-animate="fadeInUpBig">
             <div class="col-md-12">
                 <div class="box slideshow">
                     <h3>Get Inspired   
@@ -446,7 +469,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--%>
         <!-- *** GET INSPIRED END *** -->
 
         <!-- *** BLOG HOMEPAGE ***
@@ -458,13 +481,13 @@
                     <h3 class="text-uppercase">From our blog</h3>
 
                     <p class="lead">
-                        What's new in the world of fashion? <a href="blog.html">Check our blog!</a>
+                        What's new in the world of fashion? 
                     </p>
                 </div>
             </div>
         </div>
 
-        <div class="container">
+        <%--<div class="container">
 
             <div class="col-md-12" data-animate="fadeInUp">
 
@@ -507,7 +530,7 @@
                 </div>
                 <!-- /#blog-homepage -->
             </div>
-        </div>
+        </div>--%>
         <!-- /.container -->
 
         <!-- *** BLOG HOMEPAGE END *** -->

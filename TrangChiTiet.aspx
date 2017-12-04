@@ -1,6 +1,94 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage_KhachHang.master" AutoEventWireup="true" CodeFile="TrangChiTiet.aspx.cs" Inherits="TrangWeb_TrangChiTiet" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <style type="text/css">
+        .col-lg-12 {
+            margin-top: 25px;
+            margin-left:20px;
+        }
+      .col-sm-6{
+          height:500px;
+          
+          
+      }
+        .product-name {
+            color: black;
+            
+        }
+         .glyphicon-shopping-cart{
+            color:white;
+        }
+         .glyphicon-shopping-cart:hover{
+            color:#66CD00;
+        }
+            .product-name:hover {
+                text-decoration: none;
+                color: red;
+            }
+
+        .show {
+            -webkit-transition-duration: 0.5s; /*Webkit: Animation duration*/
+            -moz-transition-duration: 0.5s; /*Mozilla duration version*/
+            -o-transition-duration: 0.5s; /*Opera duration version*/
+            margin: 0 10px 5px 0; /*margin between images*/
+        }
+
+            .show:hover {
+                -webkit-transform: scale(1.1); /*Webkit: Scale up image to 1.2x original size*/
+                -moz-transform: scale(1.1); /*Mozilla scale version*/
+                -o-transform: scale(1.1); /*Opera scale version*/
+            }
+           .buy{
+               font-weight: normal;
+               font-family: "Roboto", Helvetica, Arial, sans-serif;
+               padding: 6px 12px;
+               font-size: 14px;
+               line-height: 1.42857143;
+               border-radius: 3px;   
+           }
+           .buy:hover{
+                
+                color: #ffffff;
+                background-color: #4fbfa8;
+                border-color: #41b39c;
+           }
+           .line{           
+            color:#F7931E;
+             
+        }
+    </style>
+    
+           <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+    
+<script>
+    
+   jQuery(function($) {
+       $('.buy').click(function () {
+           var str =$(this).attr('data');
+      
+        $.ajax({
+            type: "get",
+            url: "TrangGioHang.aspx",
+            data: 'MaSP=' + str,
+            contentType: "application/json; charset=utf-8",
+            success: function () { // Required Callback Function
+                $.notify("Thêm Thành Công!", { autoHideDelay: 1000, className: 'success' });
+},
+     error:function(){
+         $.notify("Thêm Thất Bại!", { autoHideDelay: 1000 });
+       }
+        });
+            });
+                    });
+    
+  
+</script> 
+    <%--<script src="obajuCSS/js/bootstrap.min.js"></script>
+    <link href="obajuCSS/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>--%>
+    <%--<link href="../css/Style.css" rel="stylesheet" type="text/css" />--%--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="all">
@@ -100,11 +188,16 @@
                                             <a href="#details" class="scroll-to">Scroll to product details, material & care and sizing</a>
                                         </p>
                                         <p class="price">
-                                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("GIA") %>'></asp:Label>
+                                            <asp:Label ID="Label1" runat="server" Text='<%# string.Format("{0:#,##0 VNĐ}",Eval("GIA"))%>'></asp:Label>
                                         </p>
 
                                         <p class="text-center buttons">
-                                            <asp:HyperLink ID="HyperLink_Mua" runat="server" CssClass="btn btn-primary" NavigateUrl='<%# "~/TrangWeb/TrangGioHang.aspx?MASP="+Eval("MaSP") %>'><i class="fa fa-shopping-cart"></i> Thêm giỏ hàng</asp:HyperLink>
+                                            <%--<asp:HyperLink ID="HyperLink_Mua" runat="server" CssClass="btn btn-primary" NavigateUrl='<%# "~/TrangGioHang.aspx?MASP="+Eval("MaSP") %>'><i class="fa fa-shopping-cart"></i> Thêm giỏ hàng</asp:HyperLink>--%>
+                                
+                                <button type="button" runat="server" class="buy" data='<%# Eval("MaSP") %>'>
+                                    <span class="fa fa-shopping-cart"></span> Thêm vào giỏ hàng
+                                </button>
+                           
                                         </p>
 
 

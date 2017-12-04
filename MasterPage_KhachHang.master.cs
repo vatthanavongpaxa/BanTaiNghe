@@ -15,29 +15,28 @@ public partial class MasterPage_KhachHang : System.Web.UI.MasterPage
         if (!IsPostBack)
         {
             CheckUser();
-           
+            CheckGioHang();
         }
-
     }
     public void CheckUser()
     {
         if (Session["User"] != null || Session["Email"] != null)
         {
             LinkButton_ThongTinCaNhan.Text = "Xin chào " + Session["User"].ToString();
-            LinkButton_DangXuat.Visible = true;
-            LinkButton_DangNhap.Visible = false;
         }
         else
         {
             LinkButton_ThongTinCaNhan.Visible = false;
             LinkButton_ThongTinCaNhan.Text = "";
-            LinkButton_DangXuat.Visible = false;
-            LinkButton_DangNhap.Visible = true;
         }
     }
-    protected void Button_DangNhap_Click(object sender, EventArgs e)
+    public void CheckGioHang()
     {
-
+        if(Session["GioHang"] != null)
+        {
+            DataTable dt = (DataTable)Session["GioHang"];
+            Label_GioHang.Text = Convert.ToString(dt.Rows.Count);
+        }
     }
 
     protected void btn_DangNhap_ServerClick(object sender, EventArgs e)
@@ -70,21 +69,17 @@ public partial class MasterPage_KhachHang : System.Web.UI.MasterPage
 
     protected void LinkButton_DangNhap_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/TrangDangKy.aspx");
+        Response.Redirect("~/TrangWeb/TrangDangKy.aspx");
 
     }
 
     protected void LinkButton_ThongTinCaNhan_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/TrangThongTinCaNhan.aspx");
+        Response.Redirect("~/TrangWeb/TrangThongTinCaNhan.aspx");
     }
 
-    protected void LinkButton_DangXuat_Click(object sender, EventArgs e)
+    protected void LinkButton_Search_Click(object sender, EventArgs e)
     {
-        Session["User"] = null;
-        Session["Email"] = null;
-        LinkButton_ThongTinCaNhan.Visible = false;
-        LinkButton_ThongTinCaNhan.Text = "";
-        Response.Redirect("~/TrangDangKy.aspx");
+
     }
 }

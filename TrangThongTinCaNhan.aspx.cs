@@ -21,8 +21,9 @@ public partial class TrangWeb_TrangThongTinCaNhan : System.Web.UI.Page
     {
         if (Session["User"] == null || Session["Email"] == null)
         {
-            Response.Redirect("~/TrangWeb/Default.aspx");
+            Response.Redirect("~/Default.aspx");
         }
+        
     }
     public void LoadTTCN()
     {
@@ -42,5 +43,10 @@ public partial class TrangWeb_TrangThongTinCaNhan : System.Web.UI.Page
     protected void TextBox_NgaySinh_PreRender(object sender, EventArgs e)
     {
         TextBox_NgaySinh.Attributes["value"] = TextBox_NgaySinh.Text;
+    }
+
+    protected void LinkButton_DangXuat_Click(object sender, EventArgs e)
+    {
+
     }
 }

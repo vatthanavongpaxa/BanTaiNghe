@@ -27,13 +27,13 @@ public partial class Admin_TraLoi : System.Web.UI.Page
     private void SendMail()
     {
         var mail = new MailMessage();
-        mail.From = new MailAddress("quantrivien@gmail.com", "shopone.azurewebsites.net");
+        mail.From = new MailAddress("quantrivien1011@gmail.com", "shopone.azurewebsites.net");
         mail.To.Add(txtEmail.Text);
         mail.Subject = "Phản hồi bình luận từ shopone.azurewebsites.net";
         mail.Body = ckeNoiDung.Text;
         ////mail.Body += "http://thegioitruyentranh.azurewebsites.net/XacNhanEmail.aspx?code=" + Session["rdnCode"] + "&tk=" + txtTK.Text;
         var client = new SmtpClient("smtp.gmail.com", 587);
-        var auth = new NetworkCredential("quantrivien@gmail.com", "eubcvjvxnvrfisql");
+        var auth = new NetworkCredential("quantrivien1011@gmail.com", "mykcjwpigtdndrsx");
         client.EnableSsl = true;
         client.Credentials = auth;
         try

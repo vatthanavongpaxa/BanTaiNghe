@@ -8,36 +8,47 @@
         <div id="content">
             <div class="container">
 
-                <div class="col-md-12">
+                <%--<div class="col-md-12">
                     <ul class="breadcrumb">
                         <li><a href="#">Home</a>
                         </li>
                         <li>Shopping cart</li>
                     </ul>
-                </div>
+                </div>--%>
 
                 <div class="col-md-12" id="basket">
 
                     <div class="box">
-                        <h1>Shopping cart</h1>
-                        <p class="text-muted">You currently have 3 item(s) in your cart.</p>
+                       <%-- <h1>Shopping cart</h1>
+                        <p class="text-muted">You currently have 3 item(s) in your cart.</p>--%>
                         <div class="table-responsive">
-                            <asp:GridView ID="GridView_GioHang" runat="server" CssClass="table table-condensed table-bordered table-hover " AutoGenerateColumns="False">
+                            <asp:GridView ID="GridView_GioHang" runat="server" CssClass="table table-hover" AutoGenerateColumns="False" GridLines="None" DataKeyNames="MASP">
                                 <Columns>
-                                    <asp:BoundField DataField="MASP" HeaderText="Mã Sản Phẩm" />
-                                    <asp:BoundField DataField="TENSP" HeaderText="Tên Sản Phẩm" />
+                                    <asp:BoundField DataField="MASP" HeaderText="Mã Sản Phẩm"></asp:BoundField>
+                                    <asp:BoundField DataField="TENSP" HeaderText="Tên Sản Phẩm">
+                                        <ItemStyle CssClass="text-capitalize text-info" />
+                                    </asp:BoundField>
                                     <asp:BoundField DataField="GIA" HeaderText="Giá" />
+                                    <asp:TemplateField HeaderText="Số Lượng">
+                                        <ItemTemplate>
+                                            <asp:TextBox ID="TextBox_SoLuong" runat="server" CssClass="form-control form-horizontal" TextMode="Number" Width="100px" Text='<%# Eval("SOLUONG") %>'></asp:TextBox>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:BoundField DataField="THANHTIEN" />
                                 </Columns>
+                                <HeaderStyle CssClass="bg-success" />
+
                             </asp:GridView>
                             <div class="box-footer">
                                 <div class="pull-left">
-                                    <a href="category.html" class="btn btn-default"><i class="fa fa-chevron-left"></i>Continue shopping</a>
+                                    <asp:HyperLink ID="LinkButton_MuaTiep" runat="server" CssClass="btn btn-default" NavigateUrl="~/TrangSanPham.aspx"><i class="fa fa-chevron-left"></i> Mua tiếp</asp:HyperLink>
                                 </div>
                                 <div class="pull-right">
-                                    <button class="btn btn-default"><i class="fa fa-refresh"></i>Update basket</button>
-                                    <button type="submit" class="btn btn-primary">
-                                        Proceed to checkout <i class="fa fa-chevron-right"></i>
-                                    </button>
+
+                                    <asp:LinkButton ID="LinkButton_CapNhat" runat="server" CssClass="btn btn-default" OnClick="LinkButton_CapNhat_Click"><i class="fa fa-refresh"></i> Cập nhật giỏ hàng</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton_ThanhToan" runat="server" CssClass="btn btn-primary" OnClick="LinkButton_ThanhToan_Click">Thanh toán <i class="fa fa-chevron-right"></i></asp:LinkButton>
+                                    <a target="_blank" href="https://www.nganluong.vn/button_payment.php?receiver=baoanhle289@gmail.com&product_name=01&price=50000&return_url=(URL thanh toán thành công)&comments=(Ghi chú về đơn hàng)">
+                                        <img src="https://www.nganluong.vn/css/newhome/img/button/pay-sm.png" border="0" /></a>
                                 </div>
                             </div>
                         </div>

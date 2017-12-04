@@ -13,12 +13,12 @@ public partial class TrangWeb_TrangDangKy : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            if (Session["User"] != null || Session["Email"] != null)
-            {
-                fdangnhap.Visible = false;
-            }
-            else
-                fdangnhap.Visible = true;
+            //if (Session["User"] != null || Session["Email"] != null)
+            //{
+            //    fdangnhap.Visible = false;
+            //}
+            //else
+            //    fdangnhap.Visible = true;
         }
     }
 
@@ -31,29 +31,29 @@ public partial class TrangWeb_TrangDangKy : System.Web.UI.Page
 
     protected void LinkButton_DangNhap_Click(object sender, EventArgs e)
     {
-        string tenDN = TextBox_EmailDN.Text;
-        string matKhau = TextBox_PassDN.Text;
-        object[] dn = new object[] { tenDN, matKhau };
-        DataTable dt = x.GetDataTable("SP_DangNhapKhachHang", dn);
-        int num = 0;
-        if (dt.Rows.Count > 0)
-        {
-            num = int.Parse("0" + dt.Rows[0][0]);
-            switch (num)
-            {
-                case 1: //Thông báo tên đăng nhập không tồn tại
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Lỗi: Tên đăng nhập không tồn tại!');", true);
-                    break;
-                case 2: // thông báo sai mật khẩu
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Lỗi: Mật khẩu đăng nhập không đúng!');", true);
-                    break;
-                case 3:
-                    Session["User"] = dt.Rows[0][1].ToString();
-                    Session["Email"] = tenDN;
-                    Response.Redirect("~/Default.aspx");
-                    break;
-            }
-        }
+        //string tenDN = TextBox_EmailDN.Text;
+        //string matKhau = TextBox_PassDN.Text;
+        //object[] dn = new object[] { tenDN, matKhau };
+        //DataTable dt = x.GetDataTable("SP_DangNhapKhachHang", dn);
+        //int num = 0;
+        //if (dt.Rows.Count > 0)
+        //{
+        //    num = int.Parse("0" + dt.Rows[0][0]);
+        //    switch (num)
+        //    {
+        //        case 1: //Thông báo tên đăng nhập không tồn tại
+        //            ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Lỗi: Tên đăng nhập không tồn tại!');", true);
+        //            break;
+        //        case 2: // thông báo sai mật khẩu
+        //            ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Lỗi: Mật khẩu đăng nhập không đúng!');", true);
+        //            break;
+        //        case 3:
+        //            Session["User"] = dt.Rows[0][1].ToString();
+        //            Session["Email"] = tenDN;
+        //            Response.Redirect("~/Default.aspx");
+        //            break;
+        //    }
+        //}
     }
 
     protected void Button_DangKy_Click(object sender, EventArgs e)
@@ -74,7 +74,7 @@ public partial class TrangWeb_TrangDangKy : System.Web.UI.Page
             switch (num)
             {
                 case 1:
-                    Response.Redirect("~/TrangWeb/Default.aspx");
+                    Response.Redirect("~/Default.aspx");
                     break;
                 case 4:
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Lỗi: Email đã tồn tạik');", true);
