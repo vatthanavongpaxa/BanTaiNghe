@@ -14,11 +14,17 @@ public partial class TrangWeb_Default : System.Web.UI.Page
         if (!IsPostBack)
         {
             Load_SanPham();
+            Load_TinTuc();
         }
     }
     public void Load_SanPham()
     {
         Repeater_SP.DataSource = x.getData("Select * from SanPham");
         Repeater_SP.DataBind();
+    }
+    public void Load_TinTuc()
+    {
+        DtNoiDung .DataSource = x.getData("Select * from TinTuc");
+        DtNoiDung.DataBind();
     }
 }

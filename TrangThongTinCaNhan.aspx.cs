@@ -49,4 +49,31 @@ public partial class TrangWeb_TrangThongTinCaNhan : System.Web.UI.Page
     {
 
     }
+
+    protected void Button_DoiMK_Click(object sender, EventArgs e)
+    {
+       
+            //if(TextBox_PassNew.Text != TextBox_PassOld.Text)
+            //{
+            //    //Response.Write("<script>alert('Mật khẩu không trùng khớp!')</script>");
+            //}
+            //else
+            //{
+                try
+                {
+                    string ten = Session["Email"].ToString();
+                    string matkhaumoi = TextBox_PassNew.Text;
+                    object[] dmk = new object[] { 3, 0, 4, "", "", "", "", "", "", ten, matkhaumoi };
+                    x.GetDataTable("BH_KhachHang", dmk);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "alert('Đổi mật khẩu thành công .')", true);
+
+                }
+                catch
+                {
+
+                }
+
+        //}
+        
+    }
 }

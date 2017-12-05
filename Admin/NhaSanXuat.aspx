@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-     <h2>DANH SÁCH LOẠI SẢN PHẨM</h2>
+     <h2>DANH SÁCH NHÀ SẢN XUẤT</h2>
     <a href="ThemNSX.aspx">Thêm mới</a>
     <asp:GridView ID="GvNhaSanXuat" CssClass="table table-striped table-bordered table-hover" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="MANSX"    GridLines="None"  CellSpacing="10" CellPadding="1" HorizontalAlign="Center" Width="100%"  PageSize="5" OnPageIndexChanging="GvNhaSanXuat_PageIndexChanging" OnSelectedIndexChanging="GvNhaSanXuat_SelectedIndexChanging" OnRowDataBound="GvNhaSanXuat_RowDataBound" OnRowDeleting="GvNhaSanXuat_RowDeleting"   >
         <Columns>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage_KhachHang.master" AutoEventWireup="true" CodeFile="TrangThongTinCaNhan.aspx.cs" Inherits="TrangWeb_TrangThongTinCaNhan" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage_KhachHang.master" EnableEventValidation="false" AutoEventWireup="true" CodeFile="TrangThongTinCaNhan.aspx.cs" Inherits="TrangWeb_TrangThongTinCaNhan" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -72,11 +72,11 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="TextBox_PassNew">Mật khẩu củ</label>
+                                    <label for="TextBox_PassNew">Nhập lại mật khẩu</label>
                                     <asp:TextBox ID="TextBox_PassOld" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
                                     <em class="text-danger">
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator_PassOld" runat="server" ErrorMessage="Nhập Mật khẩu" ControlToValidate="TextBox_PassOld" ValidationGroup="DoiMK"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator_PassOld" runat="server" ErrorMessage="Tối thiểu là 8 kí tự và tối đa là 20 kí tự" ControlToValidate="TextBox_PassOld" ValidationExpression="^[a-zA-Z0-9]{8,20}$" ValidationGroup="DoiMK"></asp:RegularExpressionValidator>
+                                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="TextBox_PassNew" ControlToValidate="TextBox_PassOld" ErrorMessage="Mật khẩu không trùng khớp" ValidationGroup="DoiMK"></asp:CompareValidator>
                                     </em>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                         <!-- /.row -->
 
                         <div class="col-sm-12 text-center">
-                            <asp:Button ID="Button_DoiMK" runat="server" Text="Cập nhật mật khẩu" CssClass="btn btn-primary" ValidationGroup="DoiMK" />
+                            <asp:Button ID="Button_DoiMK" runat="server" Text="Cập nhật mật khẩu" CssClass="btn btn-primary" ValidationGroup="DoiMK" OnClick="Button_DoiMK_Click" />
                         </div>
 
 

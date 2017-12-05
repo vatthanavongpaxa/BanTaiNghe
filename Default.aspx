@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage_KhachHang.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="TrangWeb_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <style type="text/css">
+        .auto-style1 {
+            width: 379px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
@@ -11,39 +16,16 @@
                 <div class="col-md-12">
                     <div id="main-slider">
                         <div class="item">
-                            <a href="TrangSanPham.aspx?MaLoai=1">
-                                <img class="img-responsive" src="../obajuCSS/img/img/01.jpg" alt="">
-                            </a>
+                            <img class="img-responsive" src="../obajuCSS/img/img/01.jpg" alt="">
                         </div>
                         <div class="item">
-                            <a href="TrangSanPham.aspx?MaLoai=2">
-                                <img class="img-responsive" src="../obajuCSS/img/img/02.jpg" alt="">
-                            </a>
+                            <img class="img-responsive" src="../obajuCSS/img/img/02.jpg" alt="">
                         </div>
                         <div class="item">
-                            <a href="TrangSanPham.aspx?MaLoai=3">
-                                <img class="img-responsive" src="../obajuCSS/img/img/03.jpg" alt="">
-                            </a>
+                            <img class="img-responsive" src="../obajuCSS/img/img/03.jpg" alt="">
                         </div>
                         <div class="item">
-                            <a href="TrangSanPham.aspx?MaLoai=4">
-                                <img class="img-responsive" src="../obajuCSS/img/img/04.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="TrangSanPham.aspx?MaLoai=5">
-                                <img class="img-responsive" src="../obajuCSS/img/img/05.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="TrangSanPham.aspx?MaLoai=6">
-                                <img class="img-responsive" src="../obajuCSS/img/img/06.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="TrangSanPham.aspx?MaLoai=7">
-                                <img class="img-responsive" src="../obajuCSS/img/img/07.jpg" alt="">
-                            </a>
+                            <img class="img-responsive" src="../obajuCSS/img/img/04.jpg" alt="">
                         </div>
                     </div>
                     <!-- /#main-slider -->
@@ -52,7 +34,7 @@
 
             <!-- *** ADVANTAGES HOMEPAGE ***
  _________________________________________________________ -->
-            <%-- <div id="advantages">
+            <div id="advantages">
 
                 <div class="container">
                     <div class="same-height-row">
@@ -94,7 +76,7 @@
                 </div>
                 <!-- /.container -->
 
-            </div>--%>
+            </div>
             <!-- /#advantages -->
 
             <!-- *** ADVANTAGES END *** -->
@@ -106,7 +88,7 @@
                 <div class="box">
                     <div class="container">
                         <div class="col-md-12">
-                            <h2>Hot this week</h2>
+                            <h2>Hot nhất tuần này</h2>
                         </div>
                     </div>
                 </div>
@@ -397,25 +379,25 @@
                                                 <div class="front">
                                                     <%--<a href="detail.html">--%>
                                                     <%--<img src="../Hinh/01.jpg" alt="" class="img-responsive">--%>
-                                                    <asp:HyperLink ID="HyperLink_SP1" runat="server" NavigateUrl='<%# "~/TrangWeb/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>'>
+                                                    <asp:HyperLink ID="HyperLink_SP1" runat="server" NavigateUrl='<%# "~/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>'>
                                                         <asp:Image ID="Image_img1" runat="server" ImageUrl='<%# "~/HINH/"+Eval("HINH") %>' CssClass="img-responsive" />
                                                     </asp:HyperLink>
                                                     <%--</a>--%>
                                                 </div>
                                                 <div class="back">
-                                                    <asp:HyperLink ID="HyperLink_SP2" runat="server" NavigateUrl='<%# "~/TrangWeb/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>'>
+                                                    <asp:HyperLink ID="HyperLink_SP2" runat="server" NavigateUrl='<%# "~/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>'>
                                                         <asp:Image ID="Image_img2" runat="server" ImageUrl='<%# "~/HINH/"+Eval("HINH") %>' CssClass="img-responsive" />
                                                     </asp:HyperLink>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 </div>
                                             </div>
                                         </div>
-                                        <asp:HyperLink ID="HyperLink_SP3" runat="server" CssClass="invisible" NavigateUrl='<%# "~/TrangWeb/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>'>
+                                        <asp:HyperLink ID="HyperLink_SP3" runat="server" CssClass="invisible" NavigateUrl='<%# "~/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>'>
                                             <asp:Image ID="Image_img3" runat="server" ImageUrl='<%# "~/HINH/"+Eval("HINH") %>' CssClass="img-responsive" />
                                         </asp:HyperLink>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="text">
                                             <h3>
-                                                <asp:HyperLink ID="HyperLink_SP4" runat="server" NavigateUrl='<%# "~/TrangWeb/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>' Text='<%# Eval("TENSP") %>'></asp:HyperLink>
+                                                <asp:HyperLink ID="HyperLink_SP4" runat="server" NavigateUrl='<%# "~/TrangChiTiet.aspx?MASP=" + Eval("MaSP") %>' Text='<%# Eval("TENSP") %>'></asp:HyperLink>
                                             </h3>
                                             <%--<p class="price">$143.00</p>--%>
                                         </div>
@@ -444,93 +426,72 @@
 
         <!-- *** GET INSPIRED ***
  _________________________________________________________ -->
-        <%--  <div class="container" data-animate="fadeInUpBig">
+        <div class="container" data-animate="fadeInUpBig">
             <div class="col-md-12">
                 <div class="box slideshow">
-                    <h3>Get Inspired   
+                    <h3>Tin tức công nghệ
                     </h3>
-                    <p class="lead">Get the inspiration from our world class designers</p>
-                    <div id="get-inspired" class="owl-carousel owl-theme">
+                    <%--<div id="get-inspired" class="owl-carousel owl-theme">
                         <div class="item">
-                            <a href="#">
-                                <img src="img/getinspired1.jpg" alt="Get inspired" class="img-responsive">
-                            </a>
+                           
                         </div>
-                        <div class="item">
-                            <a href="#">
-                                <img src="img/getinspired2.jpg" alt="Get inspired" class="img-responsive">
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="#">
-                                <img src="img/getinspired3.jpg" alt="Get inspired" class="img-responsive">
-                            </a>
-                        </div>
-                    </div>
+                    </div>--%>
                 </div>
             </div>
-        </div>--%>
+        </div>
+        
         <!-- *** GET INSPIRED END *** -->
 
         <!-- *** BLOG HOMEPAGE ***
  _________________________________________________________ -->
 
-        <div class="box text-center" data-animate="fadeInUp">
+    <%--    <div class="box text-center" data-animate="fadeInUp">
             <div class="container">
                 <div class="col-md-12">
                     <h3 class="text-uppercase">From our blog</h3>
 
                     <p class="lead">
-                        What's new in the world of fashion? 
+                        What's new in the world of fashion? <a href="blog.html">Check our blog!</a>
                     </p>
                 </div>
             </div>
-        </div>
+        </div>--%>
 
-        <%--<div class="container">
+        <div class="container">
 
             <div class="col-md-12" data-animate="fadeInUp">
 
-                <div id="blog-homepage" class="row">
-                    <div class="col-sm-6">
-                        <div class="post">
-                            <h4><a href="post.html">Fashion now</a></h4>
-                            <p class="author-category">
-                                By <a href="#">John Slim</a> in <a href="#">Fashion and style</a>
-                            </p>
-                            <hr>
-                            <p class="intro">
-                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-                                    ultricies mi vitae est. Mauris placerat eleifend leo.
-                            </p>
-                            <p class="read-more">
-                                <a href="post.html" class="btn btn-primary">Continue reading</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                        <div class="post">
-                            <h4><a href="post.html">Who is who - example blog post</a></h4>
-                            <p class="author-category">
-                                By <a href="#">John Slim</a> in <a href="#">About Minimal</a>
-                            </p>
-                            <hr>
-                            <p class="intro">
-                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-                                    ultricies mi vitae est. Mauris placerat eleifend leo.
-                            </p>
-                            <p class="read-more">
-                                <a href="post.html" class="btn btn-primary">Continue reading</a>
-                            </p>
-                        </div>
-
-                    </div>
-
+                <div id="blog-homepage" class="row" style=" overflow:scroll">
+                     <asp:DataList ID="DtNoiDung" cssClass="table table-hover table-striped" runat="server">
+        <ItemTemplate>
+            
+                   <table class="nav-justified">
+                <tr>
+                    <td class="auto-style1">
+                        <%--<asp:Label ID="Label2" runat="server" style="color: #0000FF; font-weight: 700; font-size: large; text-align: center" Text='<%# Eval("TieuDe") %>'></asp:Label>--%>
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# "~/TrangTinTuc.aspx?MaTT=" + Eval("MaTT") %>' Text='<%# Eval("TieuDe") %>'></asp:HyperLink>
+                    </td>
+                    <td class="text-right">
+                        <asp:Label ID="Label1" runat="server" style="text-align: left" Text='<%# Eval("Ngay") %>'></asp:Label>
+                    </td>
+                </tr>
+            </table>
+               
+        </ItemTemplate>
+    </asp:DataList>
+                    <asp:GridView ID="GvTinTuc" CssClass="table table-striped table-bordered table-hover" runat="server" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:BoundField DataField="MaTT" Visible="False" />
+                            <asp:BoundField DataField="TieuDe" >
+                            <HeaderStyle BorderStyle="None" />
+                            </asp:BoundField>
+                            <asp:BoundField DataField="Ngay" DataFormatString="{0:dd/MM/yyyy HH:mm:ss}" />
+                        </Columns>
+                    </asp:GridView>
                 </div>
                 <!-- /#blog-homepage -->
             </div>
-        </div>--%>
+        </div>
         <!-- /.container -->
 
         <!-- *** BLOG HOMEPAGE END *** -->

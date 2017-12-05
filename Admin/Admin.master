@@ -54,6 +54,9 @@
                          <li>
                             <a href="PhanHoi.aspx"><i class="fa fa-cogs nav_icon"></i>Quản Lý Phản Hồi</a>
                         </li>
+                           <li>
+                            <a href="TinTuc.aspx"><i class="fa fa-cogs nav_icon"></i>Quản Lý Tin Tức</a>
+                        </li>
                          <li>
                             <a href="TaiKhoan.aspx"><i class="fa fa-cogs nav_icon"></i>Quản Lý Tài Khoản</a>
                         </li>

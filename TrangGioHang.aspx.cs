@@ -124,4 +124,29 @@ public partial class TrangWeb_TrangGioHang : System.Web.UI.Page
     {
         Response.Redirect("~/TrangThanhToan.aspx");
     }
+
+    protected void GridView_GioHang_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "Xoa")
+        {
+            int ChiSo = int.Parse(e.CommandArgument.ToString());
+            try
+            {
+                DataTable dt = (DataTable)Session["GioHang"];
+                dt.Rows.RemoveAt(ChiSo);
+                Session["GioHang"] = dt;
+                if (dt.Rows.Count <= 0)
+                {
+                    Session["GioHang"] = null;
+                    dt = (DataTable)Session["GioHang"];
+                    Response.Redirect("~/TrangGioHang.aspx");
+                }
+                Response.Redirect("~/TrangGioHang.aspx");
+            }
+            catch
+            {
+                Response.Redirect("~/TrangGioHang.aspx");
+            }
+        }
+    }
 }

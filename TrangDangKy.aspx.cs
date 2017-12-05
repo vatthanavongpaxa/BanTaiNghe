@@ -77,7 +77,7 @@ public partial class TrangWeb_TrangDangKy : System.Web.UI.Page
                     Response.Redirect("~/Default.aspx");
                     break;
                 case 4:
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Lỗi: Email đã tồn tạik');", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Lỗi: Email đã tồn tại');", true);
                     break;
 
             }

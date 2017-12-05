@@ -13,6 +13,7 @@ public partial class Admin_DangNhap : System.Web.UI.Page
     {
         if(!IsPostBack)
         x.ASPXComboBox("select MaCV,TenCV from ChucVu", ddlChucVu, "tencv", "macv");
+        
     }
 
    
@@ -50,6 +51,9 @@ public partial class Admin_DangNhap : System.Web.UI.Page
                     Session["AD"] = txttk.Value;
                     Session["MatKhau"] = txtmk.Value;
                     Session["CV"] = ddlChucVu.SelectedValue.ToString();
+                    //Session["Ma"] = x.getData("select MaTK from TaiKhoan where TaiKhoan ='" + txttk.Value + "'");
+                    //int ma = Int32.Parse(Session["Ma"].ToString());
+                    //demo.ma = Int32.Parse(Session["Ma"].ToString());
                     demo.user = Session["CV"].ToString();
                     Response.Redirect("~/Admin/Admin.aspx");
                     break;
