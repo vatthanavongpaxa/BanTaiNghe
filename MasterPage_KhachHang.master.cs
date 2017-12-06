@@ -132,4 +132,24 @@ public partial class MasterPage_KhachHang : System.Web.UI.MasterPage
             }
         }
     }
+
+    protected void Unnamed_ServerClick(object sender, EventArgs e)
+    {
+        if (Session["User"] == null || Session["Email"] == null)
+        {
+            Response.Write("<script>alert('Vui lòng đăng nhập tài khoản !')</script>");
+        }
+        else
+            Response.Redirect("~/TrangGioHang.aspx");
+    }
+
+    protected void giohang_ServerClick(object sender, EventArgs e)
+    {
+        if (Session["User"] == null || Session["Email"] == null)
+        {
+            Response.Write("<script>alert('Vui lòng đăng nhập tài khoản !')</script>");
+        }
+        else
+            Response.Redirect("~/TrangGioHang.aspx");
+    }
 }

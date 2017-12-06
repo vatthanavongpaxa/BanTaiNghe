@@ -13,10 +13,11 @@ public partial class TrangWeb_TrangGioHang : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            if(Session["User"]==null)
+            if(Session["User"]==null || Session["Email"]==null)
             {
-                Response.Redirect("~/DangNhapKH.aspx");
+                Response.Write("<script>alert('Vui lòng đăng nhập tài khoản !')</script>");
             }
+            else
             LoadGioHang();
         }
 

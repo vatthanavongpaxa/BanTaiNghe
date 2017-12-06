@@ -91,7 +91,7 @@ public partial class TrangWeb_TrangThongTinCaNhan : System.Web.UI.Page
         }
         catch
         {
-            Response.Write("<script>alert('Lưu thông tin cá nhân thất bại !')</script>");
+            Response.Write("<script>alert('Thêm dữ liệu thất bại !')</script>");
         }
     }
 }

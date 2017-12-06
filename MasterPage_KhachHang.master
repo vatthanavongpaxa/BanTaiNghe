@@ -384,7 +384,7 @@
                 <div class="navbar-buttons">
 
                     <div class="navbar-collapse collapse right" id="basket-overview">
-                        <a href="TrangGioHang.aspx" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">
+                        <a href="TrangGioHang.aspx" id="giohang" runat="server" onserverclick="giohang_ServerClick" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">
                             <asp:Label ID="Label_GioHang" runat="server" Text="0"></asp:Label></span></a>
                     </div>
                     <!--/.nav-collapse -->
