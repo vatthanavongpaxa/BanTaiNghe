@@ -31,7 +31,7 @@
 
                             <ul class="nav nav-pills nav-stacked">
                                 <li>
-                                    <a href="customer-account.html"><i class="fa fa-user"></i>Tài khoản của tôi</a>
+                                    <a href="TrangThongTinCaNhan.aspx"><i class="fa fa-user"></i>Tài khoản của tôi</a>
                                 </li>
                                 <li>
                                     <%--<a href="index.html"><i class="fa fa-sign-out"></i>Logout</a>--%>
@@ -150,7 +150,7 @@
                             </div>
                             <div class="col-sm-12 text-center">
                                 <%--<button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>Save changes</button>--%>
-                                <asp:LinkButton ID="LinkButton_TTCN" runat="server" CssClass="btn btn-primary" ValidationGroup="TTCN"><i class="fa fa-save"></i>Lưu thông tin</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton_TTCN" runat="server" CssClass="btn btn-primary" OnClick="LinkButton_TTCN_Click"  ValidationGroup="TTCN"><i class="fa fa-save"></i>Lưu thông tin</asp:LinkButton>
 
                             </div>
                         </div>

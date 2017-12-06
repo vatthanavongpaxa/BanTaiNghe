@@ -7,8 +7,16 @@
     <asp:GridView ID="GvPhanHoi"  CssClass="table table-striped table-bordered table-hover" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="MAPH"    GridLines="None"  CellSpacing="10" CellPadding="1" HorizontalAlign="Center" Width="100%"  PageSize="5" OnSelectedIndexChanging="GvPhanHoi_SelectedIndexChanging">
         <Columns>
             <asp:BoundField DataField="MaPH" HeaderText="Mã phản hồi" Visible="False" />
-            <asp:BoundField DataField="HoTen" HeaderText="Họ tên khách hàng" />
-            <asp:BoundField DataField="SDT" HeaderText="Số điện thoại" />
+            <asp:TemplateField HeaderText="Khách hàng">
+                <ItemTemplate>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("HoTenKH") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Sản phẩm">
+                <ItemTemplate>
+                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("TenSP") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="Email" HeaderText="Email" />
             <asp:BoundField DataField="NoiDung" HeaderText="Nội dung phản hồi" />
             <asp:CommandField  HeaderText="Công Cụ" ShowSelectButton="True" ShowDeleteButton="True" DeleteText="Xóa" SelectText="Chọn"  >

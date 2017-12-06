@@ -28,7 +28,6 @@ public partial class TrangWeb_TrangThongTinCaNhan : System.Web.UI.Page
     public void LoadTTCN()
     {
         string user = Session["Email"].ToString();
-
         DataTable dt = x.getData("Select * from KhachHang where Email = '" + user + "'");
         TextBox_NameKH.Text = dt.Rows[0]["HoTenKH"].ToString();
         TextBox_SDT.Text = dt.Rows[0]["SDT"].ToString();
@@ -47,7 +46,9 @@ public partial class TrangWeb_TrangThongTinCaNhan : System.Web.UI.Page
 
     protected void LinkButton_DangXuat_Click(object sender, EventArgs e)
     {
-
+        Session["User"] = null;
+        Session["Email"] = null;
+        Response.Redirect("~/Default.aspx");
     }
 
     protected void Button_DoiMK_Click(object sender, EventArgs e)
@@ -70,10 +71,27 @@ public partial class TrangWeb_TrangThongTinCaNhan : System.Web.UI.Page
                 }
                 catch
                 {
-
-                }
+            Response.Write("<script>alert('Đổi mật khẩu thất bại !')</script>");
+        }
 
         //}
         
+    }
+
+    protected void LinkButton_TTCN_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            DataTable dt = x.getData("select MaKH from KhachHang where Email='" + Session["Email"].ToString() + "'");
+            object[] tt = new object[] {1,0,2,dt.Rows[0][0].ToString(),TextBox_NameKH.Text,DropDownList_GioiTinh.SelectedValue,TextBox_NgaySinh.Text,TextBox_SDT.Text,TextBox_DiaChi.Text,"",""};
+            x.GetDataTable("BH_KhachHang", tt);
+            Response.Redirect("~/TrangThongTinCaNhan.aspx");
+            CheckUser();
+            LoadTTCN();
+        }
+        catch
+        {
+            Response.Write("<script>alert('Lưu thông tin cá nhân thất bại !')</script>");
+        }
     }
 }

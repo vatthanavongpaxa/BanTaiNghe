@@ -24,7 +24,7 @@ public partial class Admin_PhanHoi : System.Web.UI.Page
 
     private void htdsphanhoi()
     {
-        GvPhanHoi.DataSource = x.getData("select * from PhanHoi");
+        GvPhanHoi.DataSource = x.getData("select MaPH,HoTenKH,TenSP,NoiDung,p.Email from PhanHoi p,KhachHang k,SanPham s where p.MaKH=k.MaKH and p.MaSP=s.MaSP");
         GvPhanHoi.DataBind();
     }
 

@@ -34,45 +34,96 @@
     <!-- your stylesheet with modifications -->
     <link href="/obajuCSS/css/custom.css" rel="stylesheet">
     <script type="text/javascript">
-        $("#back-to-top").click(function(){return $("body, html").animate({scrollTop:0},400),!1});
-$(function(){$('[data-toggle="tooltip"]').tooltip()});
+        $("#back-to-top").click(function () { return $("body, html").animate({ scrollTop: 0 }, 400), !1 });
+        $(function () { $('[data-toggle="tooltip"]').tooltip() });
     </script>
     <script src="/obajuCSS/js/respond.min.js"></script>
     <style type="text/css">
-         
+        .box {
+            position: relative;
+        }
+        /*.box{
+            margin:auto;
+    position:relative;
+    top:150px; left:50px; right:50px; bottom:150px;
+        }*/
         /*tạo chức năng nút lên đầu trang*/
-       #go_top{
-			display:block;
-			width:31px;
-			height:31px;
-			position:fixed;
-			background-color:black;
-			bottom:15px;
-			right:15px;
-			display:none;
-		}
+        #go_top {
+            display: block;
+            width: 31px;
+            height: 31px;
+            position: fixed;
+            background-color: black;
+            bottom: 15px;
+            right: 15px;
+            display: none;
+        }
 
-		#go_top:before{
-			content:"";
-			position:Absolute;
-			width:0;
-			height:0;
-			border:11px solid transparent;
-			border-bottom:11px solid white;
-			left:5px;
-			top:-8px;
-		}
+            #go_top:before {
+                content: "";
+                position: Absolute;
+                width: 0;
+                height: 0;
+                border: 11px solid transparent;
+                border-bottom: 11px solid white;
+                left: 5px;
+                top: -8px;
+            }
 
 
-		#go_top:after{
-			content:"";
-			position:Absolute;
-			width:10px;
-			height:17px;
-			background-color:white;
-			left:11px;
-			top:14px;
-		}
+            #go_top:after {
+                content: "";
+                position: Absolute;
+                width: 10px;
+                height: 17px;
+                background-color: white;
+                left: 11px;
+                top: 14px;
+            }
+
+        .information, .success, .error, .warning, .tip, .secure, .message, .download, .purchase, .print, .edit, .undconst, .register, .wait {
+            /*margin: 20px 50px;*/
+            width: 100%;
+            padding: 10px;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            border-radius: 15px;
+            -moz-box-shadow: 4px 3px 5px rgba(000,000,000,0.5), inset 0px 0px 10px rgba(46,46,46,0.4);
+            -webkit-box-shadow: 4px 3px 5px rgba(000,000,000,0.5), inset 0px 0px 10px rgba(46,46,46,0.4);
+            box-shadow: 4px 3px 5px rgba(000,000,000,0.5), inset 0px 0px 10px rgba(46,46,46,0.4);
+            /* Un comment any BORDER CSS line to use the style; */
+            border: 3px dashed;
+            /*border: 3px solid ;*/
+            /*border: 3px dotted ; */
+        }
+
+        /*Notification Boxes Properties*/
+        .information {
+            border-color: #0e7fad;
+            color: #0e7fad;
+            background: #c0e9fa url("../img/info.png") no-repeat;
+            background-position: 30px 20px;
+        }
+
+            .information h4 {
+                margin: 5px 5px 5px 80px;
+                padding: 0;
+                font-size: 18px;
+                width: 100%;
+            }
+
+            .information p {
+                font-size: 14px;
+                color: #434E54;
+                margin: 5px 5px 5px 80px;
+            }
+            .box
+        {
+            position: relative;
+        top: 0px;
+        left: 0px;
+    }
+            
         /*kết thúc phần tạo*/
     </style>
 
@@ -90,62 +141,173 @@ $(function(){$('[data-toggle="tooltip"]').tooltip()});
                 <div class="col-md-6" data-animate="fadeInDown">
                     <ul class="menu">
                         <li>
-                            <%--<asp:Label ID="Label_XinChao" runat="server" Text="Xin chào" CssClass="text-primary"></asp:Label>--%>
-                            <%--<asp:HyperLink ID="HyperLink1" runat="server">HyperLink</asp:HyperLink>--%>
-
+                            <%--<asp:Label ID="Label_XinChao" runat="server" Text="Xin chào" CssClass="text-primary"></asp:Label>
+                            <asp:HyperLink ID="HyperLink1" runat="server">HyperLink</asp:HyperLink>--%>
                             <asp:LinkButton ID="LinkButton_ThongTinCaNhan" runat="server" OnClick="LinkButton_ThongTinCaNhan_Click"></asp:LinkButton>
+                            <a href="#" runat="server" id="btDangNhap" data-toggle="modal" data-target="#login-modal">
+                                <asp:Label ID="Label1" runat="server" Text="Đăng nhập" CssClass="text-white"></asp:Label></a>
+                        </li>
+                       <%-- <li>
+                            <a href="#" runat="server" id="btDangNhap" data-toggle="modal" data-target="#login-modal">
+                                <asp:Label ID="Label_DangNhap" runat="server" Text="Đăng nhập" CssClass="text-white"></asp:Label></a>
 
+                        </li>--%>
+                        <li><a href="#" data-toggle="modal" data-target="#register-modal">Đăng ký</a>
                         </li>
-                        <li>
-
-                            <asp:LinkButton ID="LinkButton_DangNhap" runat="server" CausesValidation="false" OnClick="LinkButton_DangNhap_Click">Đăng nhập</asp:LinkButton>
-                            <asp:LinkButton ID="LinkButton_DangXuat" runat="server" CausesValidation="false" OnClick="LinkButton_DangXuat_Click">Đăng xuất</asp:LinkButton>
-                            <%--<asp:LinkButton ID="LinkButton_DangXuat" runat="server" Visible="true">Đăng xuất</asp:LinkButton>--%>
-                            <%-- <a href="#" data-toggle="modal" data-target="#login-modal">
-                                <asp:Label ID="Label_DangNhap" runat="server" Text="Đăng nhập" CssClass="text-white"></asp:Label></a>--%>
-                        </li>
-                        <li><a href="TrangDangKy.aspx">Đăng ký</a>
-                        </li>
-                        <li><a href="contact.html">Liên hệ</a>
+                        <li><a href="#" data-toggle="modal" data-target="#lienhe-modal">Liên hệ</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <%--<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-                <div class="modal-dialog modal-sm">
-
+            <div class="modal fade center-block" id="lienhe-modal" tabindex="-1" role="dialog" aria-labelledby="LienHe" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="Login">Customer login</h4>
+                            <h4 class="modal-title" id="LienHe">Thông tin liên hệ</h4>
                         </div>
                         <div class="modal-body">
-
-                            <div class="form-group">
-                                <%--<input type="text" class="form-control" id="email-modal" placeholder="email">
-                                <%--<input type="text" runat="server" class="form-control" id="emailmodal" placeholder="Nhập Email" />
-                                <asp:TextBox ID="TextBox_Email" runat="server" CssClass="form-control" TextMode="Email" ValidationGroup="DangNhap"></asp:TextBox>
-
+                            <div class="information">
+                                <h4>Nếu bạn gặp khó khăn hoặc không hài lòng về dịch vụ</h4>
+                                <p>Xin vui lòng gửi ý kiến đóng góp về địa chỉ email:</p>
+                                <div style="margin: 15px 0; text-align: center; padding: 10px 0 11px; border-radius: 10px; font-size: 2em; background:#0000FF; color:blue; ">
+                                    <b>
+                                        <a class="text-success" href="mailto:quantrivien1011@gmail.com">quantrivien1011@gmail.com</a>
+                                    </b>
+                                </div>
+                                <p>Chúng tôi luôn sẵn sàng giải quyết mọi phản ánh của các bạn một cách nhanh nhất.</p>
                             </div>
-                            <div class="form-group">
-                                <%--<input type="password" runat="server" class="form-control" id="passwordmodal" placeholder="Mật khẩu" />
-                                <asp:TextBox ID="TextBox_Password" runat="server" CssClass="form-control" TextMode="Password" ValidationGroup="DangNhap"></asp:TextBox>
-                            </div>
-
-                            <p class="text-center">
-                                <%--<button runat="server" id="btn_DangNhap" class="btn btn-primary" onserverclick="btn_DangNhap_ServerClick"><i class="fa fa-sign-in"></i>Log in</button>
-
-                                --<asp:HyperLink ID="HyperLink_DangNhap" runat="server" CssClass="btn btn-primary "></asp:HyperLink>
-                                <asp:LinkButton ID="LinkButton_DangNhap" runat="server" CssClass="btn btn-primary text-primary" ValidationGroup="DangNhap"><i class="fa fa-sign-in">Đăng nhập</i></asp:LinkButton>
-                            </p>
-
-                            <p class="text-center text-muted">Not registered yet?</p>
-                            <p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
 
                         </div>
                     </div>
                 </div>
-            </div>--%>
+            </div>
+            <div class="modal fade center-block" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>   
+                        </div>
+                        <div class="modal-body">
+                            <div class="box">
+                                <div >
+                                    <div class="container">
+                                        <div class="col-md-6" runat="server" id="fdangnhap">
+                                             <div class="box1">
+                                                 <h1>ĐĂNG NHẬP TÀI KHOẢN</h1>
+                                            <div class="form-group">
+                                                <label for="TextBox_EmailDN">Tên đăng nhập</label>
+                                                <asp:TextBox ID="TextBox_EmailDN" runat="server" placeholder="Email" CssClass="form-control" TextMode="Email"></asp:TextBox>
+                                                <span class="text-danger">
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_EmailDN" runat="server" ErrorMessage="Nhập tên đăng nhập" ControlToValidate="TextBox_EmailDN" ValidationGroup="DangNhap" Style="font-style: italic"></asp:RequiredFieldValidator>
+                                                </span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="TextBox_PassDN">Mật khẩu</label>
+                                                <asp:TextBox ID="TextBox_PassDN" runat="server" placeholder="Mật khẩu" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                                                <span class="text-danger">
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_PassDN" runat="server" ErrorMessage="Nhập mật khẩu" ControlToValidate="TextBox_PassDN" ValidationGroup="DangNhap" Style="font-style: italic"></asp:RequiredFieldValidator>
+                                                </span>
+                                            </div>
+                                            <div class="text-center">
+                                                <%--<asp:LinkButton ID="LinkButton_DangNhap" runat="server" Visible="true">Đăng xuất</asp:LinkButton>--%>
+                                                <asp:LinkButton ID="LinkButton_DangNhap" CssClass="btn btn-primary" runat="server" OnClick="LinkButton_DangNhap_Click1" ValidationGroup="DangNhap"><i class="fa fa-sign-in"></i> Đăng nhập</asp:LinkButton>
+                                                &nbsp;&nbsp;&nbsp;
+                             <asp:HyperLink ID="HyperLink1" NavigateUrl="~/QuenMK.aspx" runat="server" Font-Italic="True">Quên mật khẩu ?</asp:HyperLink>
+                                            </div>
+                                                 </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade center-block" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="Register" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="box">
+                                <div>
+                                    <div class="container">
+                                        <div class="col-md-6">
+                                            <div class="box1">
+                                                 <h1>ĐĂNG KÝ TÀI KHOẢN</h1>
+                                                    <div class="form-group">
+                                                        <label for="TextBox_NameDK">Họ tên</label>
+                                                        <asp:TextBox ID="TextBox_NameDK" runat="server" CssClass="form-control" placeholder="Tên khách hàng"></asp:TextBox>
+                                                        <em class="text-danger">
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_NameDK" runat="server" ErrorMessage="Nhập tên khách hàng" ValidationGroup="DangKy" ControlToValidate="TextBox_NameDK"></asp:RequiredFieldValidator>&ensp;
+                                                        </em>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="TextBox_EmailDK">Tên đăng nhập</label>
+                                                        <asp:TextBox ID="TextBox_EmailDK" runat="server" CssClass="form-control" placeholder="Email" TextMode="Email"></asp:TextBox>
+                                                        <em class="text-danger">
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_EmailDK" runat="server" ErrorMessage="Nhập Tên đăng nhập" ControlToValidate="TextBox_EmailDK" ValidationGroup="DangKy"></asp:RequiredFieldValidator>&ensp;
+                                                        </em>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="TextBox_PassDK">Mật khẩu</label>
+                                                        <asp:TextBox ID="TextBox_PassDK" runat="server" CssClass="form-control" placeholder="Password" TextMode="Password"></asp:TextBox>
+
+                                                        <em class="text-danger">
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_PassDK" runat="server" ErrorMessage="Nhập Mật khẩu" ControlToValidate="TextBox_PassDK" ValidationGroup="DangKy"></asp:RequiredFieldValidator>
+                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator_PassDK" runat="server" ErrorMessage="Mật khẩu tối thiểu là 8 kí tự và tối đa là 20 kí tự" ControlToValidate="TextBox_PassDK" ValidationExpression="^[a-zA-Z0-9]{8,20}$" ValidationGroup="DangKy"></asp:RegularExpressionValidator>
+                                                        </em>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="TextBox_NgaySinh">Ngày sinh</label>
+                                                        <asp:TextBox ID="TextBox_NgaySinh" runat="server" CssClass="form-control" placeholder="Ngày sinh" TextMode="Date"></asp:TextBox>
+                                                        <em class="text-danger">
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_NgaySinh" runat="server" ErrorMessage="Nhập ngày sinh" ValidationGroup="DangKy" ControlToValidate="TextBox_NgaySinh"></asp:RequiredFieldValidator>
+                                                        </em>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="TextBox_SDT">Số điện thoại</label>
+
+                                                        <asp:TextBox ID="TextBox_SDT" runat="server" CssClass="form-control" placeholder="Số điện thoại" TextMode="Number"></asp:TextBox>
+                                                        <em class="text-danger">
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_SDT" runat="server" ErrorMessage="Nhập Mật khẩu" ControlToValidate="TextBox_SDT" ValidationGroup="DangKy"></asp:RequiredFieldValidator>
+                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator_SDT" runat="server" ErrorMessage="Số điện thoại gồm 10 hoặc 11 số" ControlToValidate="TextBox_SDT" ValidationExpression="\d{10,11}" ValidationGroup="DangKy"></asp:RegularExpressionValidator>
+                                                        </em>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="TextBox_PassDK">Giới tính</label>
+                                                        <asp:DropDownList ID="DropDownList_GioiTinh" runat="server" CssClass="form-control">
+                                                            <asp:ListItem Value="true">Nam</asp:ListItem>
+                                                            <asp:ListItem Value="false">Nữ</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="TextBox_DiaChi">Địa chỉ</label>
+                                                        <asp:TextBox ID="TextBox_DiaChi" runat="server" CssClass="form-control" placeholder="Địa chỉ" TextMode="MultiLine"></asp:TextBox>
+
+                                                        <em class="text-danger">
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_DiaChi" runat="server" ErrorMessage="Nhập Địa chỉ" ValidationGroup="DangKy" ControlToValidate="TextBox_DiaChi"></asp:RequiredFieldValidator>
+                                                        </em>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <%--<button type="submit" class="btn btn-primary" role="button" runat="server" id="btn_DangKy" onserverclick="btn_DangKy_ServerClick"><i class="fa fa-user-md"></i>Register</button>--%>
+                                                        <asp:LinkButton ID="LinkButton_DangKy" CssClass="btn btn-primary" runat="server" OnClick="LinkButton_DangKy_Click" ValidationGroup="DangKy"><span class="text-success"><i class="fa fa-user-md"></i> Đăng ký</span></asp:LinkButton>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.container -->
+                                </div>
+        <!-- /#content -->
+    </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- *** TOP BAR END *** -->
@@ -158,7 +320,7 @@ $(function(){$('[data-toggle="tooltip"]').tooltip()});
                 <div class="navbar-header">
 
                     <a class="navbar-brand home" href="Default.aspx" data-animate-hover="bounce">
-                        <img src="/obajuCSS/img/23972396_669253420128971_778861580_n.png"  alt="Obaju logo" class="hidden-xs">
+                        <img src="/obajuCSS/img/23972396_669253420128971_778861580_n.png" alt="Obaju logo" class="hidden-xs">
                         <img src="/obajuCSS/img/23972396_669253420128971_778861580_n.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
                     </a>
                     <div class="navbar-buttons">
@@ -172,7 +334,8 @@ $(function(){$('[data-toggle="tooltip"]').tooltip()});
                             <i class="fa fa-search"></i>
                         </button>
                         <a class="btn btn-default navbar-toggle">
-                            <span class="hidden-xs"></span></a></div>
+                            <span class="hidden-xs"></span></a>
+                    </div>
                 </div>
                 <!--/.navbar-header -->
 
@@ -186,109 +349,33 @@ $(function(){$('[data-toggle="tooltip"]').tooltip()});
                             <ul class="dropdown-menu">
                                 <li>
                                     <div class="yamm-content">
-                                        <%--<div class="row">--%>
-                                            <div class="col-sm-3">
-                                                <h5><a href="TrangSanPham.aspx?MaLoai=1">APPLE</a></h5>
-                                             </div>
-                                        <div class="col-sm-3">
-                                                <h5><a href="TrangSanPham.aspx?MaLoai=2">BOSE</a></h5>
-                                        </div>
-                                          <div class="col-sm-3">
-                                                <h5><a href="TrangSanPham.aspx?MaLoai=3">GRADO</a></h5>
-                                        </div>
-                                        <div class="col-sm-3">
-                                              <h5><a href="TrangSanPham.aspx?MaLoai=4">MARSHALL</a></h5>
-                                        </div>  
-                                        <div class="col-sm-3">
-                                                 <h5><a href="TrangSanPham.aspx?MaLoai=5">HARMAN KARDON</a></h5>
-                                        </div>  
-                                        <div class="col-sm-3">
-                                                <h5><a href="TrangSanPham.aspx?MaLoai=6">SKULLCANDY</a></h5>
-                                        </div>  
-                                        <div class="col-sm-3">
-                                               <h5><a href="TrangSanPham.aspx?MaLoai=7">SONY</a></h5>
-                                        </div>                                                                                                                                                                                                                                    
-                                            <%--</div>--%>
-                                    </div>
-                                    <!-- /.yamm-content -->
-                                </li>
-                            </ul>
-                       <%-- <li class="dropdown yamm-fw">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="yamm-content">
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <h5>Shop</h5>
-                                                <ul>
-                                                    <li><a href="index.html">Homepage</a>
-                                                    </li>
-                                                    <li><a href="category.html">Category - sidebar left</a>
-                                                    </li>
-                                                    <li><a href="category-right.html">Category - sidebar right</a>
-                                                    </li>
-                                                    <li><a href="category-full.html">Category - full width</a>
-                                                    </li>
-                                                    <li><a href="detail.html">Product detail</a>
-                                                    </li>
-                                                </ul>
+                                                <h5><a href="TrangSanPham.aspx?MaLoai=1">APPLE</a></h5>
                                             </div>
                                             <div class="col-sm-3">
-                                                <h5>User</h5>
-                                                <ul>
-                                                    <li><a href="register.html">Register / login</a>
-                                                    </li>
-                                                    <li><a href="customer-orders.html">Orders history</a>
-                                                    </li>
-                                                    <li><a href="customer-order.html">Order history detail</a>
-                                                    </li>
-                                                    <li><a href="customer-wishlist.html">Wishlist</a>
-                                                    </li>
-                                                    <li><a href="customer-account.html">Customer account / change password</a>
-                                                    </li>
-                                                </ul>
+                                                <h5><a href="TrangSanPham.aspx?MaLoai=2">BOSE</a></h5>
                                             </div>
                                             <div class="col-sm-3">
-                                                <h5>Order process</h5>
-                                                <ul>
-                                                    <li><a href="basket.html">Shopping cart</a>
-                                                    </li>
-                                                    <li><a href="checkout1.html">Checkout - step 1</a>
-                                                    </li>
-                                                    <li><a href="checkout2.html">Checkout - step 2</a>
-                                                    </li>
-                                                    <li><a href="checkout3.html">Checkout - step 3</a>
-                                                    </li>
-                                                    <li><a href="checkout4.html">Checkout - step 4</a>
-                                                    </li>
-                                                </ul>
+                                                <h5><a href="TrangSanPham.aspx?MaLoai=3">GRADO</a></h5>
                                             </div>
                                             <div class="col-sm-3">
-                                                <h5>Pages and blog</h5>
-                                                <ul>
-                                                    <li><a href="blog.html">Blog listing</a>
-                                                    </li>
-                                                    <li><a href="post.html">Blog Post</a>
-                                                    </li>
-                                                    <li><a href="faq.html">FAQ</a>
-                                                    </li>
-                                                    <li><a href="text.html">Text page</a>
-                                                    </li>
-                                                    <li><a href="text-right.html">Text page - right sidebar</a>
-                                                    </li>
-                                                    <li><a href="404.html">404 page</a>
-                                                    </li>
-                                                    <li><a href="contact.html">Contact</a>
-                                                    </li>
-                                                </ul>
+                                                <h5><a href="TrangSanPham.aspx?MaLoai=4">MARSHALL</a></h5>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h5><a href="TrangSanPham.aspx?MaLoai=5">HARMAN KARDON</a></h5>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h5><a href="TrangSanPham.aspx?MaLoai=6">SKULLCANDY</a></h5>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h5><a href="TrangSanPham.aspx?MaLoai=7">SONY</a></h5>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- /.yamm-content -->
                                 </li>
                             </ul>
-                        </li>--%>
                     </ul>
 
                 </div>
@@ -296,7 +383,7 @@ $(function(){$('[data-toggle="tooltip"]').tooltip()});
 
                 <div class="navbar-buttons">
 
-                     <div class="navbar-collapse collapse right" id="basket-overview">
+                    <div class="navbar-collapse collapse right" id="basket-overview">
                         <a href="TrangGioHang.aspx" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">
                             <asp:Label ID="Label_GioHang" runat="server" Text="0"></asp:Label></span></a>
                     </div>
@@ -331,7 +418,7 @@ $(function(){$('[data-toggle="tooltip"]').tooltip()});
         <!-- *** FOOTER ***
  _________________________________________________________ -->
         <%--<div id="footer" data-animate="fadeInUp">
-            <<%--div class="container">--%>
+            <<%--div class="container">
                 <%--<div class="row">
                     <div class="col-md-3 col-sm-6">
                         <h4>Pages</h4>
@@ -447,7 +534,7 @@ $(function(){$('[data-toggle="tooltip"]').tooltip()});
 
             </div>
             <!-- /.container -->
-        </div>--%>
+        </div>
         <!-- /#footer -->
 
         <!-- *** FOOTER END *** -->
@@ -456,8 +543,7 @@ $(function(){$('[data-toggle="tooltip"]').tooltip()});
 
 
         <!-- *** COPYRIGHT ***--%>
- _________________________________________________________ -->
-        <div id="copyright">
+ <div id="copyright">
             <div class="container">
                 <div class="col-md-6">
                     <p class="pull-left">© 2015 Your name goes here.</p>
@@ -471,7 +557,7 @@ $(function(){$('[data-toggle="tooltip"]').tooltip()});
                 </div>
             </div>
         </div>
-        
+
         <%--<a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left">
             </a>--%><!--1thuthuat.blogspot.com-->
         <!-- *** COPYRIGHT END *** -->
@@ -492,27 +578,27 @@ $(function(){$('[data-toggle="tooltip"]').tooltip()});
 
     </form>
     <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>--%>
- <a href="#" id="go_top"></a>
+    <a href="#" id="go_top"></a>
 
-		<script type="text/javascript">
-		    (function () {
-		        // Ẩn hiện icon go-top
-		        $(window).scroll(function () {
-		            if ($(window).scrollTop() == 0) {
-		                $('#go_top').stop(false, true).fadeOut(600);
-		            } else {
-		                $('#go_top').stop(false, true).fadeIn(600);
-		            }
-		        });
+    <script type="text/javascript">
+        (function () {
+            // Ẩn hiện icon go-top
+            $(window).scroll(function () {
+                if ($(window).scrollTop() == 0) {
+                    $('#go_top').stop(false, true).fadeOut(600);
+                } else {
+                    $('#go_top').stop(false, true).fadeIn(600);
+                }
+            });
 
-		        // Cuộn trang lên với scrollTop
-		        //$('#go_top').click(function () {
-		        //    $('body,html').animate({ scrollTop: 0 }, 400);
-		        //    return false;
-		        //})
-		    })(jQuery);
+            // Cuộn trang lên với scrollTop
+            //$('#go_top').click(function () {
+            //    $('body,html').animate({ scrollTop: 0 }, 400);
+            //    return false;
+            //})
+        })(jQuery);
 		</script>
-   <%-- <script type="text/javascript">
+    <%-- <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];

@@ -67,7 +67,7 @@
 
                         <p class="auto-style3">Bạn đã đăng ký tài khoản của chúng tôi chưa ?</p>
                         <p class="auto-style1">Hãy đăng ký ngay để nhận được những ưu đãi và tiện ích chúng tôi mang lại dành cho bạn</p>
-                        <p class="auto-style2">Nếu bạn có thắc mắc vui lòng<a href="contact.html"> liên hệ với chúng tôi</a>, phục vụ 24/7.</p>
+                        <p class="auto-style2">Nếu bạn có thắc mắc vui lòng<span class="text-info"><a href="#" >liên hệ với chúng tôi</a></span>, phục vụ 24/7.</p>
 
                         <hr>
                         <div class="form-group">
@@ -135,36 +135,6 @@
                         </div>
                     </div>
                 </div>
-
-                <%--<div class="col-md-6" runat="server" id="fdangnhap">
-                    <div class="box">
-                        <h1>ĐĂNG NHẬP TÀI KHOẢN</h1>
-                        <div class="form-group">
-                            <label for="TextBox_EmailDN">Tên đăng nhập</label>
-                            <asp:TextBox ID="TextBox_EmailDN" runat="server" placeholder="Email" CssClass="form-control" TextMode="Email"></asp:TextBox>
-                            <span class="text-danger">
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_EmailDN" runat="server" ErrorMessage="Nhập tên đăng nhập" ControlToValidate="TextBox_EmailDN" ValidationGroup="DangNhap" style="font-style: italic"></asp:RequiredFieldValidator>
-                            </span>
-                        </div>
-                        <div class="form-group">
-                            <label for="TextBox_PassDN">Mật khẩu</label>
-                            <asp:TextBox ID="TextBox_PassDN" runat="server" placeholder="Mật khẩu" TextMode="Password" CssClass="form-control"></asp:TextBox>
-                            <span class="text-danger">
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_PassDN" runat="server" ErrorMessage="Nhập mật khẩu" ControlToValidate="TextBox_PassDN" ValidationGroup="DangNhap" style="font-style: italic"></asp:RequiredFieldValidator>
-                            </span>
-                        </div>
-
-                        <div class="text-center">
-                            
-                            <asp:LinkButton ID="LinkButton_DangNhap" CssClass="btn btn-primary" runat="server" OnClick="LinkButton_DangNhap_Click" ValidationGroup="DangNhap"><i class="fa fa-sign-in"></i> Đăng nhập</asp:LinkButton>
-                           &nbsp;&nbsp;&nbsp;
-                             <asp:HyperLink ID="HyperLink1" NavigateUrl="~/QuenMK.aspx" runat="server" Font-Italic="True">Quên mật khẩu ?</asp:HyperLink>
-                        </div>
-
-                    </div>
-                </div>--%>
-
-
             </div>
             <!-- /.container -->
         </div>

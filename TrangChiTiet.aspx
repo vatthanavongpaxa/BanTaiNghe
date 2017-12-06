@@ -52,6 +52,21 @@
                 background-color: #4fbfa8;
                 border-color: #41b39c;
            }
+
+           .comment{
+               font-weight: normal;
+               font-family: "Roboto", Helvetica, Arial, sans-serif;
+               padding: 6px 12px;
+               font-size: 14px;
+               line-height: 1.42857143;
+               border-radius: 3px;   
+           }
+           .comment:hover{
+                
+                color: #ffffff;
+                background-color: #4fbfa8;
+                border-color: #41b39c;
+           }
            .line{           
             color:#F7931E;
              
@@ -115,7 +130,7 @@
                     <div class="panel panel-default sidebar-menu">
 
                         <div class="panel-heading">
-                            <h3 class="panel-title">Categories</h3>
+                            <h3 class="panel-title">Danh mục sản phẩm</h3>
                         </div>
 
                         <div class="panel-body">
@@ -197,12 +212,11 @@
                                 <button type="button" runat="server" class="buy" data='<%# Eval("MaSP") %>'>
                                     <span class="fa fa-shopping-cart"></span> Thêm vào giỏ hàng
                                 </button>
-                           
+                                            <button type="button" data-toggle="modal" data-target="#comment-modal" class="comment" runat="server">
+                                    <span class="fa fa-comments-o"></span> Bình luận của bạn
+                                </button>
                                         </p>
-
-
                                     </div>
-
                                     <div class="row" id="thumbs">
                                         <div class="col-xs-4">
                                             <asp:HyperLink ID="HyperLink_SP1" runat="server" NavigateUrl='<%# "~/HINH/"+Eval("HINH") %>' CssClass="thumb">
@@ -226,29 +240,64 @@
 
 
                             <div class="box" id="details">
-                                <h4>Product details</h4>
+                                <h4>Thông tin chi tiết</h4> 
                                 <p>
                                     <asp:Label ID="Label_ChiTiet" runat="server" Text='<%# Eval("CHITIET") %>'></asp:Label>
-
                                 </p>
-
-
                                 <hr>
-                                <div class="social">
-                                    <h4>Show it to your friends</h4>
-                                    <p>
-                                        <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-                                        <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-                                        <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-                                        <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
-                                    </p>
+                              
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <div class="box" id="details">
+                    <div class="social">
+                                    <h4>Bình luận gần đây</h4>
+                        <asp:DataList ID="ddlBinhLuan" runat="server">
+                            <ItemTemplate>
+           <asp:Label ID="Label7" runat="server" Text='<%# Eval("HoTenKH") %>' style="color: #0000FF"></asp:Label>
+            :
+  <asp:Label ID="Label8" runat="server"  Text='<%# (Eval("NoiDung").ToString()).Replace("\n","<br>") %>'></asp:Label>
+     
+        </ItemTemplate>
+                        </asp:DataList>
+                                   <%-- <asp:Label ID="Label7" runat="server" Text='<%# Eval("TaiKhoan") %>' style="color: #0000FF"></asp:Label>
+                                            :
+                                        <asp:Label ID="Label8" runat="server"  Text='<%# (Eval("NoiDung").ToString()).Replace("\n","<br>") %>'></asp:Label>--%>
+                                </div>
+                        </div>
+                    <div class="modal fade center-block" id="comment-modal" tabindex="-1" role="dialog" aria-labelledby="LienHe" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="Comment"></h4>
+                        </div>
+                        <div class="modal-body">
+                             <div class="box">
+                                <div>
+                                    <div class="container">
+                                        <div class="col-md-6" runat="server" id="fdangnhap">
+                                             <div class="box1">
+                                                 <h1>Bình luận của bạn</h1>
+                                            <div class="form-group">
+                                                <asp:TextBox id="txtNoiDung" runat="server" TextMode="MultiLine" Width="650px" Height="70px" class="form-control" placeholder="Nhập bình luận của bạn.."></asp:TextBox>
+                                                <span class="text-danger">
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_NoiDung" runat="server" ErrorMessage="Nhập bình luận của bạn" ControlToValidate="txtNoiDung" Style="font-style: italic"></asp:RequiredFieldValidator>
+                                                </span>
+                                            </div>
+                                            <div class="text-center">
+                                                <asp:LinkButton ID="LinkButton_Gui" CssClass="btn btn-primary" runat="server" OnClick="LinkButton_Gui_Click"><i class="fa fa-sign-in"></i> Gửi bình luận</asp:LinkButton>
+                                            </div>
+                                                 </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                        </ItemTemplate>
-
-                    </asp:Repeater>
-
+                        </div>
+                    </div>
+                </div>
+            </div>
                     <!-- /.col-md-9 -->
                 </div>
                 <!-- /.container -->

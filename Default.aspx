@@ -8,10 +8,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-
     <div id="all">
         <div id="content">
-
             <div class="container">
                 <div class="col-md-12">
                     <div id="main-slider">
@@ -84,7 +82,6 @@
             <!-- *** HOT PRODUCT SLIDESHOW ***
  _________________________________________________________ -->
             <div id="hot">
-
                 <div class="box">
                     <div class="container">
                         <div class="col-md-12">
@@ -224,6 +221,7 @@
                             </div>
                             <!-- /.product -->
                         </div>
+                        
 
                         <div class="item">
                             <div class="product">

@@ -38,7 +38,7 @@ public partial class QuenMK : System.Web.UI.Page
                 Session["quenmk"] = captcha;
                 x.thuchienlenh("update KhachHang set matKhau='" + Session["quenmk"].ToString() + "' where email='" + txtemail.Text + "'");
                 var mail = new MailMessage();
-                mail.From = new MailAddress("quantrivien1011@gmail.com", "shopone.azurewebsites.net");
+                mail.From = new MailAddress("quantrivien1011@gmail.com", "thegioiamthanh.azurewebsites.net");
                 mail.To.Add(txtemail.Text);
                 mail.Subject = "Lost Password";
                 mail.Body = "Mật khẩu mới của email: " + txtemail.Text + "\n";

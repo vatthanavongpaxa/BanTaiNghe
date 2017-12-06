@@ -81,6 +81,20 @@ h1 {
   font-weight: 300;
   margin-bottom: 20px;
 }
+
+#top #register-modal .modal-header {
+  background: #4fbfa8;
+}
+#top #register-modal .modal-header h4 {
+  color: #fff;
+}
+#top #register-modal a {
+  color: #4fbfa8;
+}
+#top #font-siz-modal p {
+  font-weight: 300;
+  margin-bottom: 20px;
+}
 .navbar .yamm-content h5 {
   font-size: 18px;
   font-weight: 400;
