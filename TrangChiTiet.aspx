@@ -111,7 +111,7 @@
         <div id="content">
             <div class="container">
 
-                <div class="col-md-12">
+                <%--<div class="col-md-12">
                     <ul class="breadcrumb">
                         <li><a href="#">Home</a>
                         </li>
@@ -122,7 +122,7 @@
                         <li>White Blouse Armani</li>
                     </ul>
 
-                </div>
+                </div>--%>
 
                 <div class="col-md-3">
                     <!-- *** MENUS AND FILTERS ***
@@ -166,9 +166,6 @@
                     <!-- *** MENUS AND FILTERS END *** -->
 
                     <div class="banner">
-                        <a href="#">
-                            <img src="img/banner.jpg" alt="sales 2014" class="img-responsive">
-                        </a>
                     </div>
                 </div>
 
@@ -200,7 +197,7 @@
                                         <h1 class="text-center">
                                             <asp:Label ID="Label_SanPham" runat="server" Text='<%# Eval("TENSP") %>'></asp:Label></h1>
                                         <p class="goToDescription">
-                                            <a href="#details" class="scroll-to">Scroll to product details, material & care and sizing</a>
+                                            <a href="#details" class="scroll-to">Bấm vào để xem chi tiết</a>
                                         </p>
                                         <p class="price">
                                             <asp:Label ID="Label1" runat="server" Text='<%# string.Format("{0:#,##0 VNĐ}",Eval("GIA"))%>'></asp:Label>
